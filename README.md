@@ -40,8 +40,6 @@ Console-based Pac-Man game using Python curses. Features a classic maze, 4 ghost
 
 Animated ASCII art video playing at 30fps in the terminal. Features a Matrix rain intro, epic stick figure fight with hadouken projectiles, a hilarious banana peel incident that leads to friendship, a sunset fade out, and Star Wars-style credits. Packed with particle effects, screen shake, combo counters, and fireworks.
 
-![ASCII Art Video](ascii-art-video/screenshot.png)
-
 ![ASCII Art Video Demo](ascii-art-video/demo.gif)
 
 ## Built with
