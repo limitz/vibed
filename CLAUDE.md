@@ -22,7 +22,14 @@ Each subfolder contains a `PROMPT.md` with instructions on what to code in that 
 
 When work on a subfolder is completed:
 
-1. **Screenshot**: Generate a `screenshot.png` in the project subfolder by writing a Python script (`screenshot.py`) that uses Pillow. The screenshot must be a faithful reproduction of what the user actually sees when running the application — replicate the exact same rendering logic (characters, colors, layout) used by the real renderer. For terminal apps, build the same text buffer the renderer produces and draw it character-by-character in a monospace font on a black background. Do not stylize, embellish, or use graphical elements that aren't in the actual output. Set up a realistic mid-action demo state programmatically — don't rely on a live terminal.
+1. **Screenshot**: Generate a `screenshot.png` in the project subfolder by writing a Python script (`screenshot.py`) that uses Pillow. The screenshot must look like a photo of the running application — if someone compared the screenshot to the real app, they should be indistinguishable.
+
+   For terminal/curses apps this means:
+   - First, build the exact text buffer (a 2D grid of characters with foreground/background colors) that the renderer's `draw()` method would produce. Call the same logic or replicate it line-by-line — do NOT approximate or re-interpret the layout.
+   - Then render that buffer to an image by drawing each character cell individually: monospace font, fixed-width cells, foreground color on top of a filled background rectangle, black terminal background.
+   - Each cell must have the same dimensions. The result should look like a terminal emulator window, not a graphical UI.
+   - Do NOT use large graphical squares, scaled-up piece icons, thick borders, drop shadows, or any visual element that doesn't exist in the terminal output. If the terminal shows 3-character-wide cells in a monospace font, the screenshot must show exactly that.
+   - Set up a realistic mid-action demo state programmatically — don't rely on a live terminal.
 
 2. **Project README**: Create a `README.md` in the subfolder summarizing the work done. Include the screenshot (`![Screenshot](screenshot.png)`), your model name and version number (e.g. Claude Opus 4.6, `claude-opus-4-6`), and take credit for the implementation.
 
