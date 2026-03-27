@@ -22,7 +22,7 @@ Each subfolder contains a `PROMPT.md` with instructions on what to code in that 
 
 When work on a subfolder is completed:
 
-1. **Screenshot**: Generate a `screenshot.png` in the project subfolder by writing a Python script (`screenshot.py`) that uses Pillow to render the application state as a terminal-style image. Set up a realistic mid-action demo state programmatically — don't rely on a live terminal. The screenshot should show the app in a visually appealing state with colored elements, labels, and panels.
+1. **Screenshot**: Generate a `screenshot.png` in the project subfolder by writing a Python script (`screenshot.py`) that uses Pillow. The screenshot must be a faithful reproduction of what the user actually sees when running the application — replicate the exact same rendering logic (characters, colors, layout) used by the real renderer. For terminal apps, build the same text buffer the renderer produces and draw it character-by-character in a monospace font on a black background. Do not stylize, embellish, or use graphical elements that aren't in the actual output. Set up a realistic mid-action demo state programmatically — don't rely on a live terminal.
 
 2. **Project README**: Create a `README.md` in the subfolder summarizing the work done. Include the screenshot (`![Screenshot](screenshot.png)`), your model name and version number (e.g. Claude Opus 4.6, `claude-opus-4-6`), and take credit for the implementation.
 
