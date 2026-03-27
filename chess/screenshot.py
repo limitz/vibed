@@ -45,24 +45,11 @@ BORDER_FG = (255, 255, 255)
 
 
 def get_font(size):
-    """Load a monospace font."""
+    """Load a monospace font (must support chess Unicode U+2654-265F)."""
     paths = [
         "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",
         "/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf",
         "/usr/share/fonts/truetype/freefont/FreeMono.ttf",
-    ]
-    for p in paths:
-        if os.path.exists(p):
-            return ImageFont.truetype(p, size)
-    return ImageFont.load_default()
-
-
-def get_piece_font(size):
-    """Load a font with chess Unicode support (needs a proportional font)."""
-    paths = [
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-        "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf",
-        "/usr/share/fonts/truetype/freefont/FreeSans.ttf",
     ]
     for p in paths:
         if os.path.exists(p):
@@ -244,47 +231,43 @@ def build_screen_buffer(board):
 
 
 def draw_screenshot():
-    """Render the text buffer to an image, character by character."""
+    """Render the text buffer to an image, character by character.
+
+    Uses a single monospace font for all characters (including chess pieces),
+    just like a real terminal emulator would.
+    """
     from board import Board
 
     board = setup_board()
     buf = build_screen_buffer(board)
 
-    mono_font = get_font(18)
-    piece_font = get_piece_font(18)
+    font = get_font(18)
 
-    # Measure actual character size with the font
-    test_bbox = mono_font.getbbox("M")
-    char_w = test_bbox[2] - test_bbox[0]
-    char_h = int((test_bbox[3] - test_bbox[1]) * 1.5)
+    # Measure character cell size from the monospace font
+    # Use font.getmetrics() for consistent line height
+    ascent, descent = font.getmetrics()
+    char_h = ascent + descent + 4  # small padding like a terminal
+    # Monospace width: all chars same width
+    char_w = font.getbbox("M")[2] - font.getbbox("M")[0]
 
-    img_w = TERM_COLS * char_w + 10
-    img_h = TERM_ROWS * char_h + 10
+    pad = 8
+    img_w = TERM_COLS * char_w + 2 * pad
+    img_h = TERM_ROWS * char_h + 2 * pad
     img = Image.new('RGB', (img_w, img_h), BG)
     draw = ImageDraw.Draw(img)
 
-    # Chess unicode range for piece detection
-    chess_chars = set("♔♕♖♗♘♙♚♛♜♝♞♟")
-
     for row_i, row in enumerate(buf):
         for col_i, (ch, fg, cell_bg) in enumerate(row):
-            px = 5 + col_i * char_w
-            py = 5 + row_i * char_h
+            px = pad + col_i * char_w
+            py = pad + row_i * char_h
 
             # Draw background cell
             if cell_bg != BG:
                 draw.rectangle([px, py, px + char_w, py + char_h], fill=cell_bg)
 
-            # Draw character
+            # Draw character at the fixed grid position
             if ch != ' ':
-                font = piece_font if ch in chess_chars else mono_font
-                # Center the character in the cell
-                bbox = font.getbbox(ch)
-                cw = bbox[2] - bbox[0]
-                ch_h = bbox[3] - bbox[1]
-                cx = px + (char_w - cw) // 2
-                cy = py + (char_h - ch_h) // 2 - bbox[1]
-                draw.text((cx, cy), ch, fill=fg, font=font)
+                draw.text((px, py + 2), ch, fill=fg, font=font)
 
     output_path = os.path.join(os.path.dirname(__file__), 'screenshot.png')
     img.save(output_path)
