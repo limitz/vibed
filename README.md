@@ -34,6 +34,16 @@ Console-based Pac-Man game using Python curses. Features a classic maze, 4 ghost
 
 ![Pac-Man](pacman/screenshot.png)
 
+### [ASCII Art Video](ascii-art-video/)
+
+> `write an application that generates an ascii art video. Content: title page, then 2 stick figures fighting, then something really really funny happens, fade out, finally end-credits. When you're done ask yourself, how can I make it cooler, more amazing, flashier... do that! over and over until you're satisfied.`
+
+Animated ASCII art video playing at 30fps in the terminal. Features a Matrix rain intro, epic stick figure fight with hadouken projectiles, a hilarious banana peel incident that leads to friendship, a sunset fade out, and Star Wars-style credits. Packed with particle effects, screen shake, combo counters, and fireworks.
+
+![ASCII Art Video](ascii-art-video/screenshot.png)
+
+![ASCII Art Video Demo](ascii-art-video/demo.gif)
+
 ## Built with
 
 [Claude Code](https://claude.com/claude-code) — Claude Opus 4.6 (`claude-opus-4-6`)
