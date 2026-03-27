@@ -16,6 +16,12 @@ Console-based Tetris game using Python curses. Features SRS wall kicks, 7-bag ra
 
 ![Tetris](tetris/screenshot.png)
 
+### [Chess](chess/)
+
+Console-based chess game with a custom AI opponent. Features full chess rules (castling, en passant, promotion), minimax with alpha-beta pruning, Unicode pieces, and colored board squares.
+
+![Chess](chess/screenshot.png)
+
 ## Built with
 
 [Claude Code](https://claude.com/claude-code) — Claude Opus 4.6 (`claude-opus-4-6`)
