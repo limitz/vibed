@@ -12,11 +12,15 @@ A collection of projects built entirely by AI through vibe coding. Each subfolde
 
 ### [Tetris](tetris/)
 
+> `Make a cool Tetris game for the console.`
+
 Console-based Tetris game using Python curses. Features SRS wall kicks, 7-bag randomizer, ghost piece, scoring, and increasing difficulty.
 
 ![Tetris](tetris/screenshot.png)
 
 ### [Chess](chess/)
+
+> `Make a nice looking chess game for the console. Do not use a library for generating the moves made by the computer, write your own logic.`
 
 Console-based chess game with a custom AI opponent. Features full chess rules (castling, en passant, promotion), minimax with alpha-beta pruning, Unicode pieces, and colored board squares.
 

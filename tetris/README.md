@@ -1,5 +1,9 @@
 # Tetris
 
+```
+Make a cool Tetris game for the console.
+```
+
 A console-based Tetris game written in Python using curses.
 
 Built entirely by **Claude Opus 4.6** (model ID: `claude-opus-4-6`), Anthropic's most capable AI model.

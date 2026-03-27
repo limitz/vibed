@@ -37,4 +37,4 @@ When work on a subfolder is completed:
 
 2. **Project README**: Create a `README.md` in the subfolder summarizing the work done. Feature the text in PROMPT.md below the title, inside a codebox. Include the screenshot (`![Screenshot](screenshot.png)`), your model name and version number (e.g. Claude Opus 4.6, `claude-opus-4-6`), and take credit for the implementation.
 
-3. **Main README**: Add a subsection for the project under the `## Projects` heading in the root `README.md`. Include a brief description and the screenshot (`![Project Name](subfolder/screenshot.png)`).
+3. **Main README**: Add a subsection for the project under the `## Projects` heading in the root `README.md`. Include the prompt text as a blockquote with inline code (e.g. `> \`prompt text\``), a brief description, and the screenshot (`![Project Name](subfolder/screenshot.png)`).
