@@ -26,6 +26,14 @@ Console-based chess game with a custom AI opponent. Features full chess rules (c
 
 ![Chess](chess/screenshot.png)
 
+### [Pac-Man](pacman/)
+
+> `pacman`
+
+Console-based Pac-Man game using Python curses. Features a classic maze, 4 ghosts with unique AI personalities (Blinky, Pinky, Inky, Clyde), power pellets, ghost frightened mode, scoring, lives, and level progression.
+
+![Pac-Man](pacman/screenshot.png)
+
 ## Built with
 
 [Claude Code](https://claude.com/claude-code) — Claude Opus 4.6 (`claude-opus-4-6`)
