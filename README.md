@@ -10,9 +10,11 @@ A collection of projects built entirely by AI through vibe coding. Each subfolde
 
 ## Projects
 
-| Folder | Description |
-|--------|-------------|
-| [tetris](tetris/) | Console-based Tetris game using Python curses |
+### [Tetris](tetris/)
+
+Console-based Tetris game using Python curses. Features SRS wall kicks, 7-bag randomizer, ghost piece, scoring, and increasing difficulty.
+
+![Tetris](tetris/screenshot.png)
 
 ## Built with
 

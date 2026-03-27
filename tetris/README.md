@@ -4,6 +4,8 @@ A console-based Tetris game written in Python using curses.
 
 Built entirely by **Claude Opus 4.6** (model ID: `claude-opus-4-6`), Anthropic's most capable AI model.
 
+![Tetris Screenshot](screenshot.png)
+
 ## Features
 
 - All 7 standard tetrominoes (I, O, T, S, Z, J, L)
