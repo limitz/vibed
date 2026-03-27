@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Generate screenshot.png by faithfully reproducing the curses renderer output."""
+"""Generate screenshot.png by faithfully reproducing the curses renderer output.
+
+Builds the exact same text buffer the renderer produces and draws it
+character-by-character in a monospace font on a black background.
+"""
 
 import os
 import sys
@@ -7,242 +11,222 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 
 from PIL import Image, ImageDraw, ImageFont
-from pieces import Color, Piece, PieceType, UNICODE_SYMBOLS
-from board import Board, Move
+from pieces import Color, Piece, PieceType
 
-# Colors matching the curses renderer
-BG_COLOR = (30, 30, 30)           # Terminal background
-LIGHT_SQUARE = (230, 217, 191)    # Warm cream
-DARK_SQUARE = (115, 150, 87)      # Forest green
-WHITE_PIECE = (255, 255, 255)
-BLACK_PIECE = (40, 40, 40)
-BORDER_COLOR = (200, 200, 200)
-TITLE_COLOR = (80, 200, 200)
-STATUS_COLOR = (220, 200, 80)
-CURSOR_COLOR = (255, 230, 77)
-LAST_MOVE_LIGHT = (230, 230, 153)
-LAST_MOVE_DARK = (153, 179, 89)
-LEGAL_MOVE_BG = (128, 204, 128)
-SELECTED_BG = (102, 191, 217)
-CHECK_BG = (230, 77, 77)
+# --- Renderer constants (must match renderer.py exactly) ---
+BOARD_TOP = 2
+BOARD_LEFT = 4
+CELL_WIDTH = 3
+CELL_HEIGHT = 1
+PANEL_LEFT = BOARD_LEFT + CELL_WIDTH * 8 + 4  # 32
 
-# Layout
-CELL_SIZE = 56
-BOARD_MARGIN_TOP = 60
-BOARD_MARGIN_LEFT = 50
-PANEL_OFFSET = BOARD_MARGIN_LEFT + CELL_SIZE * 8 + 40
-IMG_WIDTH = PANEL_OFFSET + 250
-IMG_HEIGHT = BOARD_MARGIN_TOP + CELL_SIZE * 8 + 60
+# Terminal dimensions to simulate
+TERM_COLS = 60
+TERM_ROWS = 20
+
+# Character cell size in pixels
+CHAR_W = 10
+CHAR_H = 20
+
+# Colors (RGB) - matching curses color definitions
+# 256-color mode custom colors from renderer.py (scaled from 0-1000 to 0-255)
+BG = (0, 0, 0)  # Terminal background
+LIGHT_SQ_BG = (230, 217, 191)     # init_color(16, 900,850,750)
+DARK_SQ_BG = (115, 150, 87)       # init_color(17, 450,590,340)
+CURSOR_BG = (255, 230, 77)        # init_color(18, 1000,900,300)
+LAST_LIGHT_BG = (230, 230, 153)   # init_color(21, 900,900,600)
+LAST_DARK_BG = (153, 179, 89)     # init_color(22, 600,700,350)
+
+WHITE_FG = (255, 255, 255)
+BLACK_FG = (0, 0, 0)
+CYAN_FG = (0, 255, 255)
+YELLOW_FG = (255, 255, 0)
+BORDER_FG = (255, 255, 255)
 
 
 def get_font(size):
-    """Try to load a good monospace font, falling back to default."""
-    font_paths = [
+    """Load a monospace font."""
+    paths = [
         "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",
-        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
         "/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf",
         "/usr/share/fonts/truetype/freefont/FreeMono.ttf",
     ]
-    for path in font_paths:
-        if os.path.exists(path):
-            return ImageFont.truetype(path, size)
+    for p in paths:
+        if os.path.exists(p):
+            return ImageFont.truetype(p, size)
     return ImageFont.load_default()
 
 
 def get_piece_font(size):
-    """Load a font that supports chess Unicode symbols."""
-    font_paths = [
+    """Load a font with chess Unicode support (needs a proportional font)."""
+    paths = [
         "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
         "/usr/share/fonts/truetype/noto/NotoSans-Regular.ttf",
         "/usr/share/fonts/truetype/freefont/FreeSans.ttf",
     ]
-    for path in font_paths:
-        if os.path.exists(path):
-            return ImageFont.truetype(path, size)
+    for p in paths:
+        if os.path.exists(p):
+            return ImageFont.truetype(p, size)
     return ImageFont.load_default()
 
 
-def setup_demo_state():
-    """Create a mid-game demo state programmatically.
-
-    Simulates an Italian Game position after several moves:
-    1.e4 e5 2.Nf3 Nc6 3.Bc4 Bc5 4.d3 d6 5.Nc3 Nf6 6.Bg5
-    """
+def setup_board():
+    """Set up an Italian Game position (same as before)."""
+    from board import Board
     board = Board()
-    moves = [
-        Move((6, 4), (4, 4)),  # 1. e4
-        Move((1, 4), (3, 4)),  # e5
-        Move((7, 6), (5, 5)),  # 2. Nf3
-        Move((0, 1), (2, 2)),  # Nc6
-        Move((7, 5), (4, 2)),  # 3. Bc4
-        Move((0, 5), (3, 2)),  # Bc5
-        Move((6, 3), (5, 3)),  # 4. d3
-        Move((1, 3), (3, 3)),  # d6 (actually d5 target is row 3, but d6 = row 2)
-    ]
-    # Let's manually set up the position instead for accuracy
-    board = Board()
-    # Clear the board
     for r in range(8):
         for c in range(8):
             board.grid[r][c] = None
 
-    # Set up a nice mid-game Italian Game position
-    # White pieces
+    # White
     board.set_piece(7, 0, Piece(Color.WHITE, PieceType.ROOK))
     board.set_piece(7, 4, Piece(Color.WHITE, PieceType.KING))
     board.set_piece(7, 7, Piece(Color.WHITE, PieceType.ROOK))
     board.set_piece(7, 3, Piece(Color.WHITE, PieceType.QUEEN))
-    board.set_piece(5, 5, Piece(Color.WHITE, PieceType.KNIGHT))  # Nf3
-    board.set_piece(5, 2, Piece(Color.WHITE, PieceType.KNIGHT))  # Nc3
-    board.set_piece(4, 2, Piece(Color.WHITE, PieceType.BISHOP))  # Bc4
-    board.set_piece(3, 6, Piece(Color.WHITE, PieceType.BISHOP))  # Bg5
-    board.set_piece(6, 0, Piece(Color.WHITE, PieceType.PAWN))    # a2
-    board.set_piece(6, 1, Piece(Color.WHITE, PieceType.PAWN))    # b2
-    board.set_piece(6, 2, Piece(Color.WHITE, PieceType.PAWN))    # c2
-    board.set_piece(5, 3, Piece(Color.WHITE, PieceType.PAWN))    # d3
-    board.set_piece(4, 4, Piece(Color.WHITE, PieceType.PAWN))    # e4
-    board.set_piece(6, 5, Piece(Color.WHITE, PieceType.PAWN))    # f2
-    board.set_piece(6, 6, Piece(Color.WHITE, PieceType.PAWN))    # g2
-    board.set_piece(6, 7, Piece(Color.WHITE, PieceType.PAWN))    # h2
+    board.set_piece(5, 5, Piece(Color.WHITE, PieceType.KNIGHT))
+    board.set_piece(5, 2, Piece(Color.WHITE, PieceType.KNIGHT))
+    board.set_piece(4, 2, Piece(Color.WHITE, PieceType.BISHOP))
+    board.set_piece(3, 6, Piece(Color.WHITE, PieceType.BISHOP))
+    board.set_piece(6, 0, Piece(Color.WHITE, PieceType.PAWN))
+    board.set_piece(6, 1, Piece(Color.WHITE, PieceType.PAWN))
+    board.set_piece(6, 2, Piece(Color.WHITE, PieceType.PAWN))
+    board.set_piece(5, 3, Piece(Color.WHITE, PieceType.PAWN))
+    board.set_piece(4, 4, Piece(Color.WHITE, PieceType.PAWN))
+    board.set_piece(6, 5, Piece(Color.WHITE, PieceType.PAWN))
+    board.set_piece(6, 6, Piece(Color.WHITE, PieceType.PAWN))
+    board.set_piece(6, 7, Piece(Color.WHITE, PieceType.PAWN))
 
-    # Black pieces
+    # Black
     board.set_piece(0, 0, Piece(Color.BLACK, PieceType.ROOK))
     board.set_piece(0, 4, Piece(Color.BLACK, PieceType.KING))
     board.set_piece(0, 7, Piece(Color.BLACK, PieceType.ROOK))
     board.set_piece(0, 3, Piece(Color.BLACK, PieceType.QUEEN))
-    board.set_piece(2, 2, Piece(Color.BLACK, PieceType.KNIGHT))  # Nc6
-    board.set_piece(2, 5, Piece(Color.BLACK, PieceType.KNIGHT))  # Nf6
-    board.set_piece(3, 2, Piece(Color.BLACK, PieceType.BISHOP))  # Bc5
-    board.set_piece(0, 2, Piece(Color.BLACK, PieceType.BISHOP))  # Bc8
-    board.set_piece(1, 0, Piece(Color.BLACK, PieceType.PAWN))    # a7
-    board.set_piece(1, 1, Piece(Color.BLACK, PieceType.PAWN))    # b7
-    board.set_piece(2, 3, Piece(Color.BLACK, PieceType.PAWN))    # d6
-    board.set_piece(3, 4, Piece(Color.BLACK, PieceType.PAWN))    # e5
-    board.set_piece(1, 5, Piece(Color.BLACK, PieceType.PAWN))    # f7
-    board.set_piece(1, 6, Piece(Color.BLACK, PieceType.PAWN))    # g7
-    board.set_piece(1, 7, Piece(Color.BLACK, PieceType.PAWN))    # h7
+    board.set_piece(2, 2, Piece(Color.BLACK, PieceType.KNIGHT))
+    board.set_piece(2, 5, Piece(Color.BLACK, PieceType.KNIGHT))
+    board.set_piece(3, 2, Piece(Color.BLACK, PieceType.BISHOP))
+    board.set_piece(0, 2, Piece(Color.BLACK, PieceType.BISHOP))
+    board.set_piece(1, 0, Piece(Color.BLACK, PieceType.PAWN))
+    board.set_piece(1, 1, Piece(Color.BLACK, PieceType.PAWN))
+    board.set_piece(2, 3, Piece(Color.BLACK, PieceType.PAWN))
+    board.set_piece(3, 4, Piece(Color.BLACK, PieceType.PAWN))
+    board.set_piece(1, 5, Piece(Color.BLACK, PieceType.PAWN))
+    board.set_piece(1, 6, Piece(Color.BLACK, PieceType.PAWN))
+    board.set_piece(1, 7, Piece(Color.BLACK, PieceType.PAWN))
 
     return board
 
 
-def draw_screenshot():
-    """Generate the screenshot image."""
-    img = Image.new('RGB', (IMG_WIDTH, IMG_HEIGHT), BG_COLOR)
-    draw = ImageDraw.Draw(img)
+def build_screen_buffer(board):
+    """Build the exact text buffer and color map the renderer produces.
 
-    font = get_font(16)
-    font_small = get_font(13)
-    piece_font = get_piece_font(32)
-    title_font = get_font(22)
+    Returns a list of rows, where each row is a list of (char, fg_color, bg_color).
+    """
+    # Initialize buffer with spaces on black background
+    buf = [[((' ', BORDER_FG, BG)) for _ in range(TERM_COLS)] for _ in range(TERM_ROWS)]
 
-    board = setup_demo_state()
+    def put(row, col, text, fg, bg=BG):
+        for i, ch in enumerate(text):
+            c = col + i
+            if 0 <= row < TERM_ROWS and 0 <= c < TERM_COLS:
+                buf[row][c] = (ch, fg, bg)
 
     # Demo state
-    cursor_pos = (2, 5)  # Cursor on Nf6
-    selected_square = None
-    last_move = Move((7, 2, ), (3, 6))  # Bg5 was last move
-    move_history = [
-        "1. e4   e5",
-        "2. Nf3  Nc6",
-        "3. Bc4  Bc5",
-        "4. d3   d6",
-        "5. Nc3  Nf6",
-        "6. Bg5",
-    ]
-    status_msg = "Black to move"
+    cursor_pos = (2, 5)  # On the black knight at f6
+    last_move_from = (7, 2)  # Bc1-g5 (approximate)
+    last_move_to = (3, 6)
+    last_move_squares = {last_move_from, last_move_to}
 
-    # Draw title
-    title = "C H E S S"
-    title_x = (BOARD_MARGIN_LEFT + CELL_SIZE * 4) - len(title) * 6
-    draw.text((title_x, 15), title, fill=TITLE_COLOR, font=title_font)
+    # Title (row 0)
+    title = " C H E S S "
+    title_x = max(0, (min(TERM_COLS, PANEL_LEFT + 20) - len(title)) // 2)
+    put(0, title_x, title, CYAN_FG)
 
-    # Draw file labels (top)
-    files = "abcdefgh"
-    for c in range(8):
-        x = BOARD_MARGIN_LEFT + c * CELL_SIZE + CELL_SIZE // 2 - 4
-        draw.text((x, BOARD_MARGIN_TOP - 18), files[c], fill=BORDER_COLOR, font=font_small)
+    # File labels (row BOARD_TOP = 2)
+    col_labels = "  a  b  c  d  e  f  g  h"
+    put(BOARD_TOP, BOARD_LEFT - 1, col_labels, BORDER_FG)
 
-    # Draw board
+    # Board rows
     for row in range(8):
         rank = str(8 - row)
-        # Rank label (left)
-        ry = BOARD_MARGIN_TOP + row * CELL_SIZE + CELL_SIZE // 2 - 8
-        draw.text((BOARD_MARGIN_LEFT - 20, ry), rank, fill=BORDER_COLOR, font=font)
+        screen_y = BOARD_TOP + 1 + row
+
+        # Rank label left
+        put(screen_y, BOARD_LEFT - 3, rank, BORDER_FG)
 
         for col in range(8):
-            x = BOARD_MARGIN_LEFT + col * CELL_SIZE
-            y = BOARD_MARGIN_TOP + row * CELL_SIZE
-            is_light = (row + col) % 2 == 0
-
-            # Determine square color
-            sq = (row, col)
-            if sq == cursor_pos:
-                bg = CURSOR_COLOR
-            elif last_move and sq in (last_move.from_sq, last_move.to_sq):
-                bg = LAST_MOVE_LIGHT if is_light else LAST_MOVE_DARK
-            else:
-                bg = LIGHT_SQUARE if is_light else DARK_SQUARE
-
-            # Draw square
-            draw.rectangle([x, y, x + CELL_SIZE, y + CELL_SIZE], fill=bg)
-
-            # Draw piece
             piece = board.get_piece(row, col)
+            is_light = (row + col) % 2 == 0
+            sq = (row, col)
+
+            # Determine background color
+            if sq == cursor_pos:
+                cell_bg = CURSOR_BG
+                cell_fg = BLACK_FG
+            elif sq in last_move_squares:
+                cell_bg = LAST_LIGHT_BG if is_light else LAST_DARK_BG
+                cell_fg = BLACK_FG
+            else:
+                cell_bg = LIGHT_SQ_BG if is_light else DARK_SQ_BG
+                cell_fg = BLACK_FG
+
+            # Override fg for pieces
+            if piece:
+                if sq == cursor_pos or sq in last_move_squares:
+                    cell_fg = WHITE_FG if piece.color == Color.WHITE else BLACK_FG
+                elif piece.color == Color.WHITE:
+                    cell_fg = WHITE_FG
+                else:
+                    cell_fg = BLACK_FG
+
+            # Build cell string (3 chars)
             if piece:
                 symbol = piece.symbol()
-                # Center the piece symbol
-                bbox = piece_font.getbbox(symbol)
-                tw = bbox[2] - bbox[0]
-                th = bbox[3] - bbox[1]
-                px = x + (CELL_SIZE - tw) // 2
-                py = y + (CELL_SIZE - th) // 2 - 4
+                cell_str = f" {symbol} "
+            else:
+                cell_str = "   "
 
-                # Draw piece with outline for visibility
-                piece_color = WHITE_PIECE if piece.color == Color.WHITE else BLACK_PIECE
-                outline_color = BLACK_PIECE if piece.color == Color.WHITE else (180, 180, 180)
+            screen_x = BOARD_LEFT + col * CELL_WIDTH
+            for i, ch in enumerate(cell_str):
+                cx = screen_x + i
+                if 0 <= cx < TERM_COLS:
+                    buf[screen_y][cx] = (ch, cell_fg, cell_bg)
 
-                for dx in [-1, 0, 1]:
-                    for dy in [-1, 0, 1]:
-                        if dx != 0 or dy != 0:
-                            draw.text((px + dx, py + dy), symbol,
-                                      fill=outline_color, font=piece_font)
-                draw.text((px, py), symbol, fill=piece_color, font=piece_font)
+        # Rank label right
+        put(screen_y, BOARD_LEFT + 8 * CELL_WIDTH + 1, rank, BORDER_FG)
 
-        # Rank label (right)
-        draw.text((BOARD_MARGIN_LEFT + 8 * CELL_SIZE + 8, ry), rank,
-                  fill=BORDER_COLOR, font=font)
-
-    # Draw file labels (bottom)
-    for c in range(8):
-        x = BOARD_MARGIN_LEFT + c * CELL_SIZE + CELL_SIZE // 2 - 4
-        draw.text((x, BOARD_MARGIN_TOP + 8 * CELL_SIZE + 5), files[c],
-                  fill=BORDER_COLOR, font=font_small)
+    # Bottom file labels
+    put(BOARD_TOP + 1 + 8, BOARD_LEFT - 1, col_labels, BORDER_FG)
 
     # Side panel
-    px = PANEL_OFFSET
-    py = BOARD_MARGIN_TOP
+    x = PANEL_LEFT
+    y = BOARD_TOP
 
-    # Captured pieces (none in this demo)
-    draw.text((px, py), "Captured:", fill=BORDER_COLOR, font=font)
-    py += 22
-    draw.text((px + 10, py), "-", fill=BORDER_COLOR, font=font)
-    py += 20
-    draw.text((px + 10, py), "-", fill=BORDER_COLOR, font=font)
-    py += 30
+    put(y, x, "Captured:", BORDER_FG)
+    y += 1
+    put(y, x, "  -", BORDER_FG)
+    y += 1
+    put(y, x, "  -", BORDER_FG)
+    y += 2
 
-    # Status
-    draw.text((px, py), status_msg, fill=STATUS_COLOR, font=font)
-    py += 30
+    put(y, x, "Black to move", YELLOW_FG)
+    y += 2
 
-    # Move history
-    draw.text((px, py), "Moves:", fill=BORDER_COLOR, font=font)
-    py += 22
-    for move_text in move_history:
-        draw.text((px + 10, py), move_text, fill=BORDER_COLOR, font=font_small)
-        py += 18
+    put(y, x, "Moves:", BORDER_FG)
+    y += 1
+    moves = [
+        " 1. e4   e5",
+        " 2. Nf3  Nc6",
+        " 3. Bc4  Bc5",
+        " 4. d3   d6",
+        " 5. Nc3  Nf6",
+        " 6. Bg5",
+    ]
+    for m in moves:
+        put(y, x, m, BORDER_FG)
+        y += 1
 
     # Controls
-    py = BOARD_MARGIN_TOP + CELL_SIZE * 6
+    y = max(y + 1, BOARD_TOP + 10)
     controls = [
         "Controls:",
         "  Arrows: Move cursor",
@@ -252,10 +236,56 @@ def draw_screenshot():
         "  Q: Quit",
     ]
     for line in controls:
-        draw.text((px, py), line, fill=BORDER_COLOR, font=font_small)
-        py += 17
+        if y < TERM_ROWS:
+            put(y, x, line, BORDER_FG)
+            y += 1
 
-    # Save
+    return buf
+
+
+def draw_screenshot():
+    """Render the text buffer to an image, character by character."""
+    from board import Board
+
+    board = setup_board()
+    buf = build_screen_buffer(board)
+
+    mono_font = get_font(18)
+    piece_font = get_piece_font(18)
+
+    # Measure actual character size with the font
+    test_bbox = mono_font.getbbox("M")
+    char_w = test_bbox[2] - test_bbox[0]
+    char_h = int((test_bbox[3] - test_bbox[1]) * 1.5)
+
+    img_w = TERM_COLS * char_w + 10
+    img_h = TERM_ROWS * char_h + 10
+    img = Image.new('RGB', (img_w, img_h), BG)
+    draw = ImageDraw.Draw(img)
+
+    # Chess unicode range for piece detection
+    chess_chars = set("♔♕♖♗♘♙♚♛♜♝♞♟")
+
+    for row_i, row in enumerate(buf):
+        for col_i, (ch, fg, cell_bg) in enumerate(row):
+            px = 5 + col_i * char_w
+            py = 5 + row_i * char_h
+
+            # Draw background cell
+            if cell_bg != BG:
+                draw.rectangle([px, py, px + char_w, py + char_h], fill=cell_bg)
+
+            # Draw character
+            if ch != ' ':
+                font = piece_font if ch in chess_chars else mono_font
+                # Center the character in the cell
+                bbox = font.getbbox(ch)
+                cw = bbox[2] - bbox[0]
+                ch_h = bbox[3] - bbox[1]
+                cx = px + (char_w - cw) // 2
+                cy = py + (char_h - ch_h) // 2 - bbox[1]
+                draw.text((cx, cy), ch, fill=fg, font=font)
+
     output_path = os.path.join(os.path.dirname(__file__), 'screenshot.png')
     img.save(output_path)
     print(f"Screenshot saved to {output_path}")
