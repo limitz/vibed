@@ -131,8 +131,8 @@ PHONEMES: dict[str, PhonemeSpec] = {
 
     # === PLOSIVES ===
     "P": PhonemeSpec(
-        name="P", formants=[], f0=0.0, voiced=False, noise_level=0.5,
-        duration=0.08, attack=0.005, release=0.01,
+        name="P", formants=[], f0=0.0, voiced=False, noise_level=0.9,
+        duration=0.10, attack=0.005, release=0.01,
         is_plosive=True, plosive_burst_freq=800.0,
     ),
     "B": PhonemeSpec(
@@ -141,8 +141,8 @@ PHONEMES: dict[str, PhonemeSpec] = {
         is_plosive=True, plosive_burst_freq=800.0,
     ),
     "T": PhonemeSpec(
-        name="T", formants=[], f0=0.0, voiced=False, noise_level=0.6,
-        duration=0.06, attack=0.003, release=0.01,
+        name="T", formants=[], f0=0.0, voiced=False, noise_level=0.9,
+        duration=0.08, attack=0.003, release=0.01,
         is_plosive=True, plosive_burst_freq=3000.0,
     ),
     "D": PhonemeSpec(
@@ -151,8 +151,8 @@ PHONEMES: dict[str, PhonemeSpec] = {
         is_plosive=True, plosive_burst_freq=3000.0,
     ),
     "K": PhonemeSpec(
-        name="K", formants=[], f0=0.0, voiced=False, noise_level=0.6,
-        duration=0.08, attack=0.005, release=0.01,
+        name="K", formants=[], f0=0.0, voiced=False, noise_level=0.9,
+        duration=0.10, attack=0.005, release=0.01,
         is_plosive=True, plosive_burst_freq=1500.0,
     ),
     "G": PhonemeSpec(
@@ -203,8 +203,8 @@ PHONEMES: dict[str, PhonemeSpec] = {
     # === SPECIAL ===
     "HH": PhonemeSpec(  # /h/
         name="HH",
-        formants=[FormantSpec(500, 0.3, 200), FormantSpec(1500, 0.2, 200), FormantSpec(2500, 0.1, 200)],
-        f0=0.0, voiced=False, noise_level=0.3, duration=0.06, attack=0.01, release=0.02,
+        formants=[FormantSpec(500, 0.8, 300), FormantSpec(1500, 0.6, 300), FormantSpec(2500, 0.4, 300)],
+        f0=0.0, voiced=False, noise_level=0.7, duration=0.08, attack=0.01, release=0.02,
     ),
     "SIL": PhonemeSpec(  # silence
         name="SIL", formants=[], f0=0.0, voiced=False, noise_level=0.0,

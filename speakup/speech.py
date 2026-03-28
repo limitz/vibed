@@ -28,7 +28,7 @@ def render_phoneme(spec: PhonemeSpec, duration: float, f0: float,
 
     # Voiced component: FM formant pairs
     if spec.voiced and spec.formants and f0 > 0:
-        env = Envelope(attack=max(spec.attack, 0.02), decay=0.03, sustain=0.8, release=max(spec.release, 0.03))
+        env = Envelope(attack=max(spec.attack, 0.012), decay=0.02, sustain=0.8, release=0.005)
         # Modulator at F0 (fundamental pitch)
         modulator = np.sin(2 * np.pi * f0 * t)
         for formant in spec.formants:
@@ -43,7 +43,7 @@ def render_phoneme(spec: PhonemeSpec, duration: float, f0: float,
 
     # Noise/fricative component
     if spec.noise_level > 0 and spec.formants:
-        env = Envelope(attack=max(spec.attack, 0.02), decay=0.02, sustain=0.9, release=max(spec.release, 0.03))
+        env = Envelope(attack=max(spec.attack, 0.012), decay=0.015, sustain=0.9, release=0.005)
         for formant in spec.formants:
             noise_sig = noise_modulated_fm(
                 formant.frequency, spec.noise_level,
@@ -68,7 +68,7 @@ def _render_plosive(spec: PhonemeSpec, duration: float, f0: float,
                     t: np.ndarray, n: int, sample_rate: int) -> np.ndarray:
     """Render a plosive consonant: closure + burst."""
     result = np.zeros(n)
-    burst_duration = min(0.015, duration * 0.4)
+    burst_duration = min(0.035, duration * 0.5)
     closure_duration = duration - burst_duration
     burst_start = int(closure_duration * sample_rate)
 
@@ -77,20 +77,20 @@ def _render_plosive(spec: PhonemeSpec, duration: float, f0: float,
         closure_end = burst_start
         t_closure = t[:closure_end]
         if len(t_closure) > 0:
-            voicing = np.sin(2 * np.pi * f0 * t_closure) * 0.15
+            voicing = np.sin(2 * np.pi * f0 * t_closure) * 0.2
             env = np.linspace(0.5, 0.1, len(t_closure))
             result[:closure_end] = voicing * env
 
-    # Burst: short FM noise at characteristic frequency
+    # Burst: punchy FM noise at characteristic frequency
     burst_samples = n - burst_start
     if burst_samples > 0:
         burst = noise_modulated_fm(
             spec.plosive_burst_freq, spec.noise_level,
             burst_samples / sample_rate, sample_rate
         )
-        # Apply fast decay envelope
-        decay = np.exp(-np.linspace(0, 8, len(burst)))
-        result[burst_start:burst_start + len(burst)] = burst * decay * 0.3
+        # Sharp attack, moderate decay
+        decay = np.exp(-np.linspace(0, 5, len(burst)))
+        result[burst_start:burst_start + len(burst)] = burst * decay * 0.7
 
     return result
 
@@ -130,13 +130,13 @@ def render_utterance(phonemes: list[str], sample_rate: int = 44100,
             specs.append(PHONEMES.get("SIL", PHONEMES["AH"]))
 
     f0_contour = apply_intonation(phonemes, f0_base)
-    overlap_dur = 0.060 / speed  # 60ms overlap region for smooth blending
+    overlap_dur = 0.045 / speed  # 45ms overlap — connected but snappy
     overlap_samples = int(overlap_dur * sample_rate)
 
     # Render all phonemes with stretched durations for natural pacing
     rendered = []
     for i, spec in enumerate(specs):
-        duration = spec.duration * 1.8 / speed  # 1.8x slower than raw phoneme durations
+        duration = spec.duration * 1.15 / speed
         f0 = f0_contour[i]
         audio = render_phoneme(spec, duration, f0, sample_rate)
         rendered.append(audio)
