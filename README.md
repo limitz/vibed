@@ -138,6 +138,15 @@ Physically-inspired aeroacoustic flatulence synthesizer. Models a half-wave rect
 
 🎵 **[Listen to Flatulent Happy Birthday (MP3)](flatulent-birthday/happy_birthday_flatulent.mp3)**
 
+### [Artist](artist/)
+
+**Prompt:**
+> `Stage 1: Define a file format that stores stylus events (position, direction, pressure, angle, color, tool). Write an application that can convert such a file to a realistic drawing on plain white smooth paper. Make a couple of drawings, refine until you can accurately reproduce an image you have in your mind. Aesthetics are everything! Stage 2: Design a drawing course, 20 lessons, covering everything from the basics of drawing, to portraits, abstract art, landscapes. For each lesson, define a pass/fail criterion. Stage 3: You are now the student. Take the course and become a true artist. Don't be hasty, refine, refine, refine. If you fail a criterion 3 times, rethink the lesson. Continue until you have passed all classes. Stage 4: Make me a work of art. Make it a masterpiece. Save to png.`
+
+A complete AI art education system. Stage 1 builds a stamp-based stylus rendering engine with 6 tools (pen, pencil, brush, charcoal, marker, eraser). Stage 2 designs a 20-lesson curriculum from basic lines to color still life. Stage 3 takes the course with a persistent skill system (`skills.md`) that accumulates learning across lessons -- adjusting pressures, spacing, and techniques after each attempt. Stage 4 creates a sunset landscape masterpiece: 1920x1080, 2827 strokes.
+
+![Artist](artist/screenshot.png)
+
 ## Built with
 
 [Claude Code](https://claude.com/claude-code) — Claude Opus 4.6 (`claude-opus-4-6`)

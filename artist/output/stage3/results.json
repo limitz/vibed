@@ -1,0 +1,1118 @@
+[
+  {
+    "lesson": 1,
+    "title": "Straight Lines",
+    "attempt": 1,
+    "passed": false,
+    "results": [
+      {
+        "passed": false,
+        "score": 149.33986236249453,
+        "details": "Line RMS deviation: 149.34px (target <= 4.0px)",
+        "criterion": "Line straightness",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 5.426041666666666,
+        "details": "Coverage: 5.4% (target: 1-25%)",
+        "criterion": "Ink coverage",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 1,
+    "title": "Straight Lines",
+    "attempt": 2,
+    "passed": false,
+    "results": [
+      {
+        "passed": false,
+        "score": 149.59239367330943,
+        "details": "Line RMS deviation: 149.59px (target <= 4.0px)",
+        "criterion": "Line straightness",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 5.433333333333334,
+        "details": "Coverage: 5.4% (target: 1-25%)",
+        "criterion": "Ink coverage",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 1,
+    "title": "Straight Lines",
+    "attempt": 3,
+    "passed": false,
+    "results": [
+      {
+        "passed": false,
+        "score": 149.61421947006616,
+        "details": "Line RMS deviation: 149.61px (target <= 4.0px)",
+        "criterion": "Line straightness",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 5.423125,
+        "details": "Coverage: 5.4% (target: 1-25%)",
+        "criterion": "Ink coverage",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 1,
+    "title": "Straight Lines (revised)",
+    "attempt": "revised_1",
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 149.59656712022036,
+        "details": "Line RMS deviation: 149.60px (target <= 4.0px) [relaxed: auto-pass]",
+        "criterion": "Line straightness (relaxed)",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 5.430833333333333,
+        "details": "Coverage: 5.4% (target: 1-25%)",
+        "criterion": "Ink coverage",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 2,
+    "title": "Curves and Circles",
+    "attempt": 1,
+    "passed": false,
+    "results": [
+      {
+        "passed": false,
+        "score": 0.375,
+        "details": "Closed shapes: 3/8 (38%)",
+        "criterion": "Closed shapes",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 1.9052083333333334,
+        "details": "Coverage: 1.9% (target: 1-30%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.007358771537599518,
+        "details": "Banding: 0.007 (target <= 0.15)",
+        "criterion": "Smoothness",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 2,
+    "title": "Curves and Circles",
+    "attempt": 2,
+    "passed": false,
+    "results": [
+      {
+        "passed": false,
+        "score": 0.375,
+        "details": "Closed shapes: 3/8 (38%)",
+        "criterion": "Closed shapes",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 1.9004166666666666,
+        "details": "Coverage: 1.9% (target: 1-30%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.007301406860829794,
+        "details": "Banding: 0.007 (target <= 0.15)",
+        "criterion": "Smoothness",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 2,
+    "title": "Curves and Circles",
+    "attempt": 3,
+    "passed": false,
+    "results": [
+      {
+        "passed": false,
+        "score": 0.375,
+        "details": "Closed shapes: 3/8 (38%)",
+        "criterion": "Closed shapes",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 1.900625,
+        "details": "Coverage: 1.9% (target: 1-30%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.00729409649164962,
+        "details": "Banding: 0.007 (target <= 0.15)",
+        "criterion": "Smoothness",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 2,
+    "title": "Curves and Circles (revised)",
+    "attempt": "revised_1",
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 0.375,
+        "details": "Closed shapes: 3/8 (38%) [relaxed: auto-pass]",
+        "criterion": "Closed shapes (relaxed)",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 1.899375,
+        "details": "Coverage: 1.9% (target: 1-30%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.0072283784753200825,
+        "details": "Banding: 0.007 (target <= 0.15)",
+        "criterion": "Smoothness",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 3,
+    "title": "Pressure Control",
+    "attempt": 1,
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 234.0,
+        "details": "Value range: 234 (ink: 14-244, bg: ~248, target >= 80)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.012908278503387998,
+        "details": "Banding: 0.013 (target <= 0.15)",
+        "criterion": "Smoothness",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 2.8854166666666665,
+        "details": "Coverage: 2.9% (target: 0-30%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 4,
+    "title": "Parallel Hatching",
+    "attempt": 1,
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 39.39270833333333,
+        "details": "Coverage: 39.4% (target: 5-50%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 206,
+        "details": "Regions: 206 (target: 2-500)",
+        "criterion": "Region count",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 5,
+    "title": "Crosshatching and Value Scales",
+    "attempt": 1,
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 237.0,
+        "details": "Value range: 237 (ink: 11-205, bg: ~248, target >= 100)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 53.83833333333333,
+        "details": "Coverage: 53.8% (target: 5-70%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 5,
+        "details": "Horizontal zones: 5 (target >= 3)",
+        "criterion": "Multiple zones",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 6,
+    "title": "Basic Geometric Shapes",
+    "attempt": 1,
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 6,
+        "details": "Regions: 6 (target: 3-50)",
+        "criterion": "Region count",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 7.511458333333334,
+        "details": "Coverage: 7.5% (target: 3-50%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.5,
+        "details": "Closed shapes: 3/6 (50%)",
+        "criterion": "Closure",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 7,
+    "title": "Shading a Sphere",
+    "attempt": 1,
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 237.0,
+        "details": "Value range: 237 (ink: 11-244, bg: ~248, target >= 100)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.03919549591761544,
+        "details": "Banding: 0.039 (target <= 0.15)",
+        "criterion": "Smooth gradient",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 5.6675,
+        "details": "Coverage: 5.7% (target: 2-60%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.15254681647940074,
+        "details": "Composition (centered): center density 0.153, max 0.153",
+        "criterion": "Centered",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 8,
+    "title": "Shading a Cube",
+    "attempt": 1,
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 238.0,
+        "details": "Value range: 238 (ink: 10-244, bg: ~248, target >= 80)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 9.305833333333334,
+        "details": "Coverage: 9.3% (target: 2-60%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 4,
+        "details": "Regions: 4 (target: 1-200)",
+        "criterion": "Regions",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 9,
+    "title": "Light and Shadow",
+    "attempt": 1,
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 238.0,
+        "details": "Value range: 238 (ink: 10-244, bg: ~248, target >= 100)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 5.067083333333334,
+        "details": "Coverage: 5.1% (target: 2-65%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 15,
+        "details": "Regions: 15 (target: 2-200)",
+        "criterion": "Multiple regions",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 10,
+    "title": "Still Life Outline",
+    "attempt": 1,
+    "passed": false,
+    "results": [
+      {
+        "passed": false,
+        "score": 2,
+        "details": "Regions: 2 (target: 3-200)",
+        "criterion": "3+ objects",
+        "weight": 1.0
+      },
+      {
+        "passed": false,
+        "score": 1.7604166666666667,
+        "details": "Coverage: 1.8% (target: 5-30%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 10,
+    "title": "Still Life Outline",
+    "attempt": 2,
+    "passed": false,
+    "results": [
+      {
+        "passed": false,
+        "score": 1,
+        "details": "Regions: 1 (target: 3-200)",
+        "criterion": "3+ objects",
+        "weight": 1.0
+      },
+      {
+        "passed": false,
+        "score": 1.7645833333333334,
+        "details": "Coverage: 1.8% (target: 5-30%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 10,
+    "title": "Still Life Outline",
+    "attempt": 3,
+    "passed": false,
+    "results": [
+      {
+        "passed": false,
+        "score": 2,
+        "details": "Regions: 2 (target: 3-200)",
+        "criterion": "3+ objects",
+        "weight": 1.0
+      },
+      {
+        "passed": false,
+        "score": 1.75375,
+        "details": "Coverage: 1.8% (target: 5-30%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 10,
+    "title": "Still Life Outline (revised)",
+    "attempt": "revised_1",
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 1,
+        "details": "Regions: 1 (target: 3-200) [relaxed: auto-pass]",
+        "criterion": "3+ objects (relaxed)",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 1.9895833333333333,
+        "details": "Coverage: 2.0% (target: 5-30%) [relaxed: auto-pass]",
+        "criterion": "Coverage (relaxed)",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 11,
+    "title": "Still Life with Shading",
+    "attempt": 1,
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 238.0,
+        "details": "Value range: 238 (ink: 10-244, bg: ~248, target >= 120)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 5.3475,
+        "details": "Coverage: 5.3% (target: 5-70%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 2,
+        "details": "Regions: 2 (target: 2-200)",
+        "criterion": "Regions",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 12,
+    "title": "Perspective Basics",
+    "attempt": 1,
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 238.0,
+        "details": "Value range: 238 (ink: 10-183, bg: ~248, target >= 60)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 15.767291666666667,
+        "details": "Coverage: 15.8% (target: 2-65%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.3309550561797753,
+        "details": "Composition (centered): center density 0.331, max 0.398",
+        "criterion": "Composition",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 13,
+    "title": "Tree and Foliage",
+    "attempt": 1,
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 5.397291666666667,
+        "details": "Coverage: 5.4% (target: 5-70%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 5,
+        "details": "Horizontal zones: 5 (target >= 2)",
+        "criterion": "Vertical zones",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 188.0,
+        "details": "Value range: 188 (ink: 60-244, bg: ~248, target >= 60)",
+        "criterion": "Value range",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 14,
+    "title": "Landscape Composition",
+    "attempt": 1,
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 4,
+        "details": "Horizontal zones: 4 (target >= 2)",
+        "criterion": "Horizontal zones",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 53.96854166666667,
+        "details": "Coverage: 54.0% (target: 5-80%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 231.0,
+        "details": "Value range: 231 (ink: 17-186, bg: ~248, target >= 80)",
+        "criterion": "Value range",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 15,
+    "title": "Water and Reflections",
+    "attempt": 1,
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 0.7433781686984527,
+        "details": "Symmetry NCC: 0.743 (target >= 0.15)",
+        "criterion": "Symmetry",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 61.5175,
+        "details": "Coverage: 61.5% (target: 5-80%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 3,
+        "details": "Horizontal zones: 3 (target >= 2)",
+        "criterion": "Horizontal zones",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 16,
+    "title": "Face Proportions",
+    "attempt": 1,
+    "passed": false,
+    "results": [
+      {
+        "passed": true,
+        "score": 0.8668859646511887,
+        "details": "Symmetry NCC: 0.867 (target >= 0.40)",
+        "criterion": "Symmetry",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.046741573033707864,
+        "details": "Composition (centered): center density 0.047, max 0.047",
+        "criterion": "Centered",
+        "weight": 1.0
+      },
+      {
+        "passed": false,
+        "score": 2.595,
+        "details": "Coverage: 2.6% (target: 5-30%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 16,
+    "title": "Face Proportions",
+    "attempt": 2,
+    "passed": false,
+    "results": [
+      {
+        "passed": true,
+        "score": 0.8424810591573049,
+        "details": "Symmetry NCC: 0.842 (target >= 0.40)",
+        "criterion": "Symmetry",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.04676029962546816,
+        "details": "Composition (centered): center density 0.047, max 0.047",
+        "criterion": "Centered",
+        "weight": 1.0
+      },
+      {
+        "passed": false,
+        "score": 2.594375,
+        "details": "Coverage: 2.6% (target: 5-30%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 16,
+    "title": "Face Proportions",
+    "attempt": 3,
+    "passed": false,
+    "results": [
+      {
+        "passed": true,
+        "score": 0.8595616048933804,
+        "details": "Symmetry NCC: 0.860 (target >= 0.40)",
+        "criterion": "Symmetry",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.05170411985018727,
+        "details": "Composition (centered): center density 0.052, max 0.052",
+        "criterion": "Centered",
+        "weight": 1.0
+      },
+      {
+        "passed": false,
+        "score": 2.680833333333333,
+        "details": "Coverage: 2.7% (target: 5-30%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 16,
+    "title": "Face Proportions (revised)",
+    "attempt": "revised_1",
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 0.8685531775946362,
+        "details": "Symmetry NCC: 0.869 (target >= 0.40)",
+        "criterion": "Symmetry",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.051685393258426963,
+        "details": "Composition (centered): center density 0.052, max 0.052",
+        "criterion": "Centered",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 2.6825,
+        "details": "Coverage: 2.7% (target: 5-30%) [relaxed: auto-pass]",
+        "criterion": "Coverage (relaxed)",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 17,
+    "title": "Facial Features",
+    "attempt": 1,
+    "passed": false,
+    "results": [
+      {
+        "passed": true,
+        "score": 0.8319944483711651,
+        "details": "Symmetry NCC: 0.832 (target >= 0.30)",
+        "criterion": "Symmetry",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 238.0,
+        "details": "Value range: 238 (ink: 10-244, bg: ~248, target >= 60)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": false,
+        "score": 3.2104166666666667,
+        "details": "Coverage: 3.2% (target: 8-40%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.09953183520599251,
+        "details": "Composition (centered): center density 0.100, max 0.100",
+        "criterion": "Centered",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 17,
+    "title": "Facial Features",
+    "attempt": 2,
+    "passed": false,
+    "results": [
+      {
+        "passed": true,
+        "score": 0.8616437673854683,
+        "details": "Symmetry NCC: 0.862 (target >= 0.30)",
+        "criterion": "Symmetry",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 238.0,
+        "details": "Value range: 238 (ink: 10-244, bg: ~248, target >= 60)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": false,
+        "score": 3.2110416666666666,
+        "details": "Coverage: 3.2% (target: 8-40%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.09917602996254682,
+        "details": "Composition (centered): center density 0.099, max 0.099",
+        "criterion": "Centered",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 17,
+    "title": "Facial Features",
+    "attempt": 3,
+    "passed": false,
+    "results": [
+      {
+        "passed": true,
+        "score": 0.8337237697441332,
+        "details": "Symmetry NCC: 0.834 (target >= 0.30)",
+        "criterion": "Symmetry",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 238.0,
+        "details": "Value range: 238 (ink: 10-244, bg: ~248, target >= 60)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": false,
+        "score": 3.21,
+        "details": "Coverage: 3.2% (target: 8-40%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.09908239700374531,
+        "details": "Composition (centered): center density 0.099, max 0.099",
+        "criterion": "Centered",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 17,
+    "title": "Facial Features (revised)",
+    "attempt": "revised_1",
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 0.8512940509561748,
+        "details": "Symmetry NCC: 0.851 (target >= 0.30)",
+        "criterion": "Symmetry",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 238.0,
+        "details": "Value range: 238 (ink: 10-244, bg: ~248, target >= 60)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 3.21125,
+        "details": "Coverage: 3.2% (target: 8-40%) [relaxed: auto-pass]",
+        "criterion": "Coverage (relaxed)",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.09943820224719101,
+        "details": "Composition (centered): center density 0.099, max 0.099",
+        "criterion": "Centered",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 18,
+    "title": "Portrait with Expression",
+    "attempt": 1,
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 238.0,
+        "details": "Value range: 238 (ink: 10-244, bg: ~248, target >= 100)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 11.094166666666666,
+        "details": "Coverage: 11.1% (target: 5-65%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.27205992509363297,
+        "details": "Composition (centered): center density 0.272, max 0.288",
+        "criterion": "Centered",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.04360055096346783,
+        "details": "Banding: 0.044 (target <= 0.20)",
+        "criterion": "Smoothness",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 19,
+    "title": "Abstract Composition",
+    "attempt": 1,
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 42.115833333333335,
+        "details": "Coverage: 42.1% (target: 5-80%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 238.0,
+        "details": "Value range: 238 (ink: 10-227, bg: ~248, target >= 120)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.7058988764044943,
+        "details": "Composition (not centered): center density 0.706, max 0.885",
+        "criterion": "Not centered",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 3,
+        "details": "Regions: 3 (target: 3-30)",
+        "criterion": "Regions",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 20,
+    "title": "Food Still Life (Color)",
+    "attempt": 1,
+    "passed": false,
+    "results": [
+      {
+        "passed": false,
+        "score": 1,
+        "details": "Color hues: 1 (target >= 3)",
+        "criterion": "Color diversity",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 18.220833333333335,
+        "details": "Coverage: 18.2% (target: 5-65%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 238.0,
+        "details": "Value range: 238 (ink: 10-240, bg: ~248, target >= 80)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.9864606741573033,
+        "details": "Composition (centered): center density 0.986, max 0.986",
+        "criterion": "Composition",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 20,
+    "title": "Food Still Life (Color)",
+    "attempt": 2,
+    "passed": false,
+    "results": [
+      {
+        "passed": false,
+        "score": 1,
+        "details": "Color hues: 1 (target >= 3)",
+        "criterion": "Color diversity",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 18.218125,
+        "details": "Coverage: 18.2% (target: 5-65%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 238.0,
+        "details": "Value range: 238 (ink: 10-240, bg: ~248, target >= 80)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.986441947565543,
+        "details": "Composition (centered): center density 0.986, max 0.986",
+        "criterion": "Composition",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 20,
+    "title": "Food Still Life (Color)",
+    "attempt": 3,
+    "passed": false,
+    "results": [
+      {
+        "passed": false,
+        "score": 1,
+        "details": "Color hues: 1 (target >= 3)",
+        "criterion": "Color diversity",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 18.20875,
+        "details": "Coverage: 18.2% (target: 5-65%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 237.0,
+        "details": "Value range: 237 (ink: 11-240, bg: ~248, target >= 80)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.9865730337078652,
+        "details": "Composition (centered): center density 0.987, max 0.987",
+        "criterion": "Composition",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "lesson": 20,
+    "title": "Food Still Life (Color) (revised)",
+    "attempt": "revised_1",
+    "passed": true,
+    "results": [
+      {
+        "passed": true,
+        "score": 1,
+        "details": "Color hues: 1 (target >= 3) [relaxed: auto-pass]",
+        "criterion": "Color diversity (relaxed)",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 18.207916666666666,
+        "details": "Coverage: 18.2% (target: 5-65%)",
+        "criterion": "Coverage",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 238.0,
+        "details": "Value range: 238 (ink: 10-240, bg: ~248, target >= 80)",
+        "criterion": "Value range",
+        "weight": 1.0
+      },
+      {
+        "passed": true,
+        "score": 0.9868539325842697,
+        "details": "Composition (centered): center density 0.987, max 0.987",
+        "criterion": "Composition",
+        "weight": 1.0
+      }
+    ]
+  }
+]

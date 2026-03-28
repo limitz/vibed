@@ -1,0 +1,402 @@
+[
+  {
+    "number": 1,
+    "title": "Straight Lines",
+    "description": "Master drawing straight horizontal, vertical, and diagonal lines with uniform weight.",
+    "objectives": [
+      "Draw straight lines",
+      "Control line weight",
+      "Maintain consistency"
+    ],
+    "instructions": "Draw 5 horizontal lines, 5 vertical lines, and 5 diagonal lines across the canvas. Keep uniform pressure throughout each line. Lines should be evenly spaced.",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "Line straightness",
+      "Ink coverage"
+    ],
+    "reference_images": []
+  },
+  {
+    "number": 2,
+    "title": "Curves and Circles",
+    "description": "Draw smooth arcs, circles, and S-curves without sharp corners.",
+    "objectives": [
+      "Draw smooth curves",
+      "Control curvature",
+      "Close shapes cleanly"
+    ],
+    "instructions": "Draw 3 circles of different sizes, 3 arcs, and 2 S-curves. Circles should be closed (endpoints meeting).",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "Closed shapes",
+      "Coverage",
+      "Smoothness"
+    ],
+    "reference_images": []
+  },
+  {
+    "number": 3,
+    "title": "Pressure Control",
+    "description": "Draw lines with gradual pressure ramps from light to heavy and back.",
+    "objectives": [
+      "Control pressure smoothly",
+      "Achieve full pressure range",
+      "Smooth transitions"
+    ],
+    "instructions": "Draw 5 horizontal lines. Each starts with very light pressure and gradually increases to heavy, then back to light. The result should show smooth width/darkness gradients.",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "Value range",
+      "Smoothness",
+      "Coverage"
+    ],
+    "reference_images": []
+  },
+  {
+    "number": 4,
+    "title": "Parallel Hatching",
+    "description": "Fill regions with evenly-spaced parallel lines at various angles.",
+    "objectives": [
+      "Even spacing",
+      "Consistent angle",
+      "Uniform pressure"
+    ],
+    "instructions": "Create three rectangular regions filled with parallel hatching: one at 0 degrees, one at 45 degrees, and one at 90 degrees. Lines should be evenly spaced.",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "Coverage",
+      "Region count"
+    ],
+    "reference_images": [
+      "/home/wipkat/data/dtd/dtd/images/lined/"
+    ]
+  },
+  {
+    "number": 5,
+    "title": "Crosshatching and Value Scales",
+    "description": "Create a 5-step value gradient using layered hatching.",
+    "objectives": [
+      "Layer hatching for darker values",
+      "Create smooth value progression",
+      "5 distinct zones"
+    ],
+    "instructions": "Create 5 adjacent rectangular zones. Zone 1 is lightest (sparse single-direction hatching), zone 5 is darkest (dense crosshatching at multiple angles). Each zone should be visibly different from its neighbors.",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "Value range",
+      "Coverage",
+      "Multiple zones"
+    ],
+    "reference_images": [
+      "/home/wipkat/data/dtd/dtd/images/crosshatched/"
+    ]
+  },
+  {
+    "number": 6,
+    "title": "Basic Geometric Shapes",
+    "description": "Draw outlined and filled squares, triangles, and circles.",
+    "objectives": [
+      "Clean shape outlines",
+      "Proper closure",
+      "Shape variety"
+    ],
+    "instructions": "Draw a square, a triangle, and a circle. Each should be outlined clearly. Below them, draw a filled square, filled triangle, and filled circle. Each shape should occupy 10-20% of the canvas.",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "Region count",
+      "Coverage",
+      "Closure"
+    ],
+    "reference_images": []
+  },
+  {
+    "number": 7,
+    "title": "Shading a Sphere",
+    "description": "Create a sphere with smooth gradated shading showing 3D volume.",
+    "objectives": [
+      "Smooth shading gradient",
+      "Highlight and shadow areas",
+      "3D illusion"
+    ],
+    "instructions": "Draw a large circle and shade it to look like a 3D sphere. Use gradual hatching density or pressure variation. Leave a highlight area (lighter), darken the shadow side. The transition should be smooth.",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "Value range",
+      "Smooth gradient",
+      "Coverage",
+      "Centered"
+    ],
+    "reference_images": []
+  },
+  {
+    "number": 8,
+    "title": "Shading a Cube",
+    "description": "Render a cube with three visible faces at distinct values.",
+    "objectives": [
+      "Three distinct planes",
+      "Consistent shading per face",
+      "Straight edges"
+    ],
+    "instructions": "Draw a cube in 3/4 view (3 faces visible). Each face should have a distinctly different shade: top face lightest, one side medium, other side darkest. Edges should be straight.",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "Value range",
+      "Coverage",
+      "Regions"
+    ],
+    "reference_images": []
+  },
+  {
+    "number": 9,
+    "title": "Light and Shadow",
+    "description": "Draw an object with a cast shadow on a ground plane.",
+    "objectives": [
+      "Object rendering",
+      "Cast shadow",
+      "Ground plane indication"
+    ],
+    "instructions": "Draw a sphere or cube on a ground plane. Add a cast shadow extending from the base of the object. The shadow should be darker than the ground but lighter than the darkest part of the object.",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "Value range",
+      "Coverage",
+      "Multiple regions"
+    ],
+    "reference_images": []
+  },
+  {
+    "number": 10,
+    "title": "Still Life Outline",
+    "description": "Draw outlines of 3 simple objects arranged on a table.",
+    "objectives": [
+      "Multiple objects",
+      "Table/baseline",
+      "Clean outlines"
+    ],
+    "instructions": "Draw a cup, an apple, and a book arranged on a table. Use only outlines, no shading. Objects should rest on a common horizontal baseline (the table edge). Each object should be distinct and recognizable by shape.",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "3+ objects",
+      "Coverage"
+    ],
+    "reference_images": []
+  },
+  {
+    "number": 11,
+    "title": "Still Life with Shading",
+    "description": "Add shading and shadows to the still life composition.",
+    "objectives": [
+      "3D shading",
+      "Shadows",
+      "Tonal depth"
+    ],
+    "instructions": "Recreate the still life from Lesson 10 but now add shading to each object and cast shadows on the table. Use hatching or pressure variation for shading. Each object should appear 3-dimensional.",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "Value range",
+      "Coverage",
+      "Regions"
+    ],
+    "reference_images": []
+  },
+  {
+    "number": 12,
+    "title": "Perspective Basics",
+    "description": "Draw a hallway or road receding to a vanishing point.",
+    "objectives": [
+      "Converging lines",
+      "Depth illusion",
+      "Size diminishment"
+    ],
+    "instructions": "Draw a road or hallway with converging edges meeting at a vanishing point. Add elements like posts or doorways that diminish in size with distance. The vanishing point should be roughly centered.",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "Value range",
+      "Coverage",
+      "Composition"
+    ],
+    "reference_images": [
+      "/home/wipkat/data/cityscapes_data/"
+    ]
+  },
+  {
+    "number": 13,
+    "title": "Tree and Foliage",
+    "description": "Draw a tree with trunk, branches, and leaf clusters.",
+    "objectives": [
+      "Organic trunk form",
+      "Branching structure",
+      "Textured foliage"
+    ],
+    "instructions": "Draw a tree with a visible trunk, branches spreading outward, and foliage rendered as textured clusters at the branch tips. The trunk should be at the bottom, foliage at the top. Use varied pressure for organic feel.",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "Coverage",
+      "Vertical zones",
+      "Value range"
+    ],
+    "reference_images": []
+  },
+  {
+    "number": 14,
+    "title": "Landscape Composition",
+    "description": "Draw a landscape with foreground, middle ground, and sky.",
+    "objectives": [
+      "Three depth planes",
+      "Atmospheric perspective",
+      "Horizon line"
+    ],
+    "instructions": "Draw a landscape with a clear horizon line. The sky (top) should be lightest, the foreground (bottom) should have the most detail and darker values. Middle ground elements (hills/trees) should be intermediate. Use the full width of the canvas.",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "Horizontal zones",
+      "Coverage",
+      "Value range"
+    ],
+    "reference_images": [
+      "/home/wipkat/data/cityscapes_data/"
+    ]
+  },
+  {
+    "number": 15,
+    "title": "Water and Reflections",
+    "description": "Draw a lake scene with horizon and reflections.",
+    "objectives": [
+      "Horizon line",
+      "Reflection symmetry",
+      "Water texture"
+    ],
+    "instructions": "Draw a scene with a body of water. The top half is land/sky, the bottom half is water with reflections. The reflection should mirror the skyline loosely. Water should have horizontal texture. Sky should be lighter than water.",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "Symmetry",
+      "Coverage",
+      "Horizontal zones"
+    ],
+    "reference_images": []
+  },
+  {
+    "number": 16,
+    "title": "Face Proportions",
+    "description": "Draw a front-facing face outline with proportion guidelines.",
+    "objectives": [
+      "Oval head shape",
+      "Proportion guidelines",
+      "Bilateral symmetry"
+    ],
+    "instructions": "Draw an oval for the head. Add horizontal guidelines at 1/2 (eye line), 2/3 (nose), and 3/4 (mouth) of the oval height. The face should be roughly symmetric. Center the face on the canvas.",
+    "canvas_width": 600,
+    "canvas_height": 800,
+    "criteria": [
+      "Symmetry",
+      "Centered",
+      "Coverage"
+    ],
+    "reference_images": [
+      "/home/wipkat/data/celeba/img_align_celeba/"
+    ]
+  },
+  {
+    "number": 17,
+    "title": "Facial Features",
+    "description": "Draw eyes, nose, and mouth with basic shading.",
+    "objectives": [
+      "Feature placement",
+      "Eye symmetry",
+      "Basic feature rendering"
+    ],
+    "instructions": "Draw a face with eyes, nose, and mouth in correct proportions. Add basic shading around the nose and under the eyes. The eyes should be roughly symmetric.",
+    "canvas_width": 600,
+    "canvas_height": 800,
+    "criteria": [
+      "Symmetry",
+      "Value range",
+      "Coverage",
+      "Centered"
+    ],
+    "reference_images": [
+      "/home/wipkat/data/celeba/img_align_celeba/"
+    ]
+  },
+  {
+    "number": 18,
+    "title": "Portrait with Expression",
+    "description": "Complete portrait with hair, shading, and personality.",
+    "objectives": [
+      "Hair rendering",
+      "Full shading",
+      "Expression/mood"
+    ],
+    "instructions": "Draw a complete portrait with face features, hair, and full shading. The portrait should have a specific mood or expression. Include tonal depth with highlight and shadow areas. Use varied tools for different textures (pencil for skin, brush for hair).",
+    "canvas_width": 600,
+    "canvas_height": 800,
+    "criteria": [
+      "Value range",
+      "Coverage",
+      "Centered",
+      "Smoothness"
+    ],
+    "reference_images": [
+      "/home/wipkat/data/celeba/img_align_celeba/"
+    ]
+  },
+  {
+    "number": 19,
+    "title": "Abstract Composition",
+    "description": "Create an abstract piece using learned mark-making with rhythm, contrast, and movement.",
+    "objectives": [
+      "Visual dynamism",
+      "Tonal contrast",
+      "Multiple textures",
+      "Compositional balance"
+    ],
+    "instructions": "Create an abstract artwork using all the skills learned so far. Combine different tools (pen, pencil, brush, charcoal) for varied textures. Use strong tonal contrast. The composition should NOT be centered -- create visual movement and tension. Aim for 3+ distinct textural regions.",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "Coverage",
+      "Value range",
+      "Not centered",
+      "Regions"
+    ],
+    "reference_images": []
+  },
+  {
+    "number": 20,
+    "title": "Food Still Life (Color)",
+    "description": "Draw a colorful food item with multiple tools and colors.",
+    "objectives": [
+      "Color usage",
+      "Form rendering",
+      "Tool variety",
+      "Appetizing appearance"
+    ],
+    "instructions": "Draw a food item (fruit, sushi, pastry) using multiple colors. Use at least 3 distinct colors. Render form with shading. The food should be recognizable as a single dominant object. Use different tools for different textures.",
+    "canvas_width": 800,
+    "canvas_height": 600,
+    "criteria": [
+      "Color diversity",
+      "Coverage",
+      "Value range",
+      "Composition"
+    ],
+    "reference_images": [
+      "/home/wipkat/data/food-101/images/"
+    ]
+  }
+]
