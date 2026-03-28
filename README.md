@@ -147,6 +147,15 @@ A complete AI art education system. Stage 1 builds a stamp-based stylus renderin
 
 ![Artist](artist/screenshot.png)
 
+### [Artist 2: Teacher & Student](artist2/)
+
+**Prompt:**
+> `Read both TEACHER.md and STUDENT.md. Both define a workflow for 2 agents, each having their own context. Prepare the directory structure needed for the task, then start the 2 agents. Check in once in a while, informing me on the progress`
+
+A multi-agent art education system. A teacher agent designs 8 progressive lessons (lines → shapes → shading → color → landscape → portraits → abstract → masterpiece) with PASS/FAIL criteria. A student agent completes each assignment using the drawing toolkit from the artist project, producing real PNG artwork. The teacher evaluates critically and adapts the curriculum. Culminates in "The Dreamer's Horizon" — 2,159 strokes, 57 colors, all 5 tools.
+
+![Artist 2](artist2/screenshot.png)
+
 ## Built with
 
 [Claude Code](https://claude.com/claude-code) — Claude Opus 4.6 (`claude-opus-4-6`)

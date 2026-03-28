@@ -268,3 +268,248 @@ The student completed all 13 pass criteria for Lesson 5. The output is a golden-
 ### Next Steps
 
 Lesson 6 will introduce portrait and expression. The student will move from landscape to the human form, drawing three small portrait studies showing different facial expressions. The key challenges will be face proportions (especially placing the eyes at the vertical midpoint of the head, not near the top), conveying emotion through line quality (mouth curvature, eyebrow angle), applying shading to a complex curved surface (the face), and rendering hair with varied strokes. This lesson tests whether the student can transfer shading and composition skills from landscapes and still lifes to a fundamentally different subject.
+
+---
+
+## After Lesson 6: Portrait & Expression
+
+**Date:** 2026-03-28
+**Result:** PASS
+
+### Performance Summary
+
+The student completed all 13 pass criteria for Lesson 6. The output contains three portrait studies arranged side by side on a 900x700 canvas with a warm paper-tone background and pencil dividers. Portrait 1 (happy): wavy brown hair, brown eyes, upturned smile with crow's feet and nasolabial folds. Portrait 2 (sad): straight long dark hair, blue eyes, downturned mouth with worried brows angled upward and heavy upper eyelids. Portrait 3 (contemplative): curly short red hair, green eyes, neutral straight mouth with level brows and a sideward gaze. All faces have correct proportions, ears, necks, shoulders, multi-zone shading, and hair rendered with two tools each. Used all five tools (pen, pencil, brush, charcoal, marker) across 1325 strokes with 20+ distinct colors.
+
+### Evaluation by Criterion
+
+| Criterion | Status | Notes |
+|-----------|--------|-------|
+| Three portraits present | PASS | Three faces clearly separated by pencil dividers, no overlap |
+| Head proportions reasonable | PASS | Each face has an elliptical head (rx=70, ry=95); eyes at cy-5, which is near the vertical midpoint of the head oval |
+| Eyes present on all faces | PASS | Each portrait has two elliptical eyes with filled-circle iris, filled-circle pupil, and white highlight dots |
+| Eyebrows present on all faces | PASS | Happy: arched marker curves. Sad: charcoal curves with inner ends angled up. Contemplative: level pencil curves |
+| Nose present on all faces | PASS | Each face has a nose bridge line, tip arc, and two nostril arcs |
+| Mouth present on all faces | PASS | Happy: M-shaped upper lip + smile curve + lower lip with lip fill. Sad: downturned curves with lip fill. Contemplative: neutral line with subtle curves and lip fill |
+| Three distinct expressions | PASS | Clearly distinguishable: upturned smile with crow's feet vs downturned mouth with worried brows vs neutral straight lips with sideward gaze |
+| Shading present (2+ faces) | PASS | All three faces have identical multi-zone shading: shadow-side hatching, deeper right-cheek hatching, under-nose shadow, jaw shadow, under-lip shadow, eye socket shadows, and cheek blush |
+| Hair present on all faces | PASS | Wavy (charcoal S-curves + pencil highlights), straight long (charcoal lines + pencil highlights), curly short (charcoal circles + pencil highlight circles + charcoal filled mass) |
+| Tool variety (4+) | PASS | All five tools: pen (outlines, eyes, nostrils), pencil (shading, brows, nose bridge, highlights), brush (skin fill, jaw shadow, lip fill, blush, background), charcoal (hair mass, sad eyebrows), marker (happy eyebrows) |
+| Color variety (6+) | PASS | 20+ distinct colors/tuples: skin base (225,190,155), skin shadow (195,155,120), skin deep shadow (165,125,95), lip (185,95,85), lip dark (150,70,65), blush (215,155,140), nose (185,145,115), eyebrow dark (65,45,30), brown hair (80,55,35), highlight hair (120,85,55), black hair (40,35,30), red hair (160,55,30), eye brown (85,55,30), eye blue (60,100,150), eye green (55,110,70), white (255,255,255), plus outline and background colors |
+| extend vs append correct | PASS | No TypeErrors across 1325 strokes |
+| Output file valid (900x700 PNG) | PASS | PNG rendered correctly at 900x700 |
+
+### Strengths
+
+- **The parameterized function is a genuine engineering achievement.** The student built a single `draw_portrait()` function that takes expression, hair style, eye color, and hair colors as parameters. The same function produces all three portraits with consistent proportions while varying the emotionally critical elements. This is the most sophisticated code architecture the student has produced. It enables rapid iteration on expression without re-engineering the entire face each time.
+
+- **The three expressions are clearly distinguishable.** This is the core test of the lesson. Looking at the three faces, a viewer can immediately identify: the left face is happy (smile, arched brows, squinted eyes, crow's feet), the center face is sad (frown, worried upward-angled brows, droopy heavy-lidded eyes, downcast gaze), and the right face is contemplative (closed neutral mouth, level brows, steady gaze directed slightly to the side). The emotional differentiation works. The student understood that expression lives in the mouth-eyebrow-eye triangle and varied all three elements.
+
+- **Eye highlights bring the faces to life.** Every eye has a tiny white filled circle at the upper-left of the iris. This single detail -- 1.2px radius, white, placed at a slight offset from center -- transforms the eyes from flat colored dots to eyes that appear to have light in them. The student noted this technique in SKILLS.md and applied it consistently. The contemplative portrait's sideward gaze (iris offset by +2 pixels to the right) is a particularly nice touch that reinforces the "looking away in thought" expression.
+
+- **Tool selection matches emotional content.** The happy portrait uses marker for bold, confident eyebrows. The sad portrait uses charcoal for heavy, rough, emotionally weighted eyebrows. The contemplative portrait uses pencil for quiet, even, understated eyebrows. This is not accidental -- the code explicitly selects different tools for each expression. The student is using tool texture as an expressive element, not just a technical one.
+
+- **The hair styles are genuinely different.** Wavy hair uses S-curves radiating from a crown point. Straight long hair uses parallel charcoal lines falling vertically. Curly short hair uses overlapping small circles in a grid pattern bounded by the head shape. Each style uses charcoal for the mass and pencil for lighter highlight strands. The three styles read as distinctly different hair types.
+
+- **Every face has neck and shoulders.** The faces do not float in space. Each one connects to a neck (two vertical lines with fill and shadow) and curved shoulder lines. This grounds the portraits and makes them feel like studies of people rather than disembodied ovals.
+
+### Weaknesses
+
+- **The faces do not quite look like faces.** This is the most honest assessment I can give. The proportions are technically correct -- eyes at the midline, nose halfway to chin, mouth below nose. The features are all present. But the overall effect is closer to a folk art illustration or a naive drawing than a recognizable human face. The head outlines are perfect mathematical ellipses that lack the subtle angularity of a real jaw and forehead. The features float in the oval without the underlying bone structure that makes a face read as three-dimensional. The shading helps, but it is applied as rectangular hatching zones that do not follow the contours of cheekbones, brow ridges, or nasal cartilage. Someone looking at these would say "those are drawings of faces" rather than "those are faces."
+
+- **The shading is identical across all three faces.** The `draw_portrait` function applies the exact same shading zones -- same positions, same angles, same pressures, same sizes -- to all three portraits regardless of expression. A happy face catches light differently than a sad one because the muscles change the surface geometry. Smiling pushes the cheeks up, creating different shadow patterns than a frown that pulls the corners of the mouth down. The student has not varied the shading to match the expression. This is the most significant missed opportunity in the lesson.
+
+- **The hair overwhelms the face.** In all three portraits, the hair commands more visual weight than the facial features. The wavy hair's S-curves extend far below the eyes. The straight long hair cascades down past the mouth on both sides, partially framing/obscuring the face. The curly hair's filled circle mass covers the upper portion of the head heavily. The hair-to-face ratio is too high -- the hair is the dominant visual element, and the facial features (which carry the expression) are secondary. In a portrait study focused on expression, the face should dominate.
+
+- **The hatching zones still extend beyond face boundaries.** This is the same problem from Lessons 3, 4, and 5. The shadow-side hatching rectangle (cx+10, cy-60, 55x130) and the deeper cheek hatching (cx+25, cy-20, 35x70) are axis-aligned rectangles that do not follow the elliptical head outline. Some hatching strokes extend outside the head oval, visible as stray marks beyond the face boundary. After six lessons, this boundary problem has not been solved.
+
+- **The ears are rudimentary.** Each ear is a single arc drawn at a fixed position relative to the head ellipse. Real ears have internal structure (helix, tragus, lobe) that gives them shape. These arcs read as parentheses stuck to the sides of the head. Given the level of detail in the eyes, mouth, and hair, the ears feel underdeveloped.
+
+- **No background variation between portraits.** All three portraits sit on the same uniform warm paper wash. The lesson suggested that background or context could differentiate the studies. A happy portrait against warm yellow, a sad one against cool gray, a contemplative one against muted blue -- even subtle background variation would reinforce the emotional content and demonstrate the student's color theory skills from Lesson 4.
+
+### Current Skill Level
+
+**Intermediate-Advanced** -- can construct faces with correct proportional relationships, draw expressive features that communicate distinct emotions, render three different hair styles with appropriate tool and technique choices, apply multi-zone shading to complex curved surfaces, and organize a multi-portrait composition with consistent quality. All five tools are used with artistic intent. Code architecture (parameterized portrait function) is sophisticated. The persistent weaknesses are: rectangular shading zones that escape curved boundaries, uniform shading that does not respond to expression-driven surface changes, and a tendency for supporting elements (hair) to visually overwhelm the focal content (facial expression). The student has completed the fundamentals curriculum -- lines, shapes, shading, color, composition, landscape, portrait -- and is ready to move into expressive and abstract territory.
+
+### Next Steps
+
+Lesson 7 will push the student into abstract and expressive art. Having mastered representational fundamentals (still life, landscape, portrait), the student will now explore composition, color, and mark-making freed from the constraint of depicting recognizable subjects. The challenge will be using all available tools expressively -- charcoal for raw energy, brush for fluid washes, pen for precise structural marks -- to create two abstract compositions that convey contrasting moods (energy/chaos vs calm/serenity). This lesson tests whether the student can make artistic choices that serve emotional expression rather than representational accuracy.
+
+---
+
+## After Lesson 7: Abstract & Expressive Art
+
+**Date:** 2026-03-28
+**Result:** PASS
+
+### Performance Summary
+
+The student completed all 14 pass criteria for Lesson 7. The output is a diptych abstract composition on a 1000x500 canvas with two emotionally contrasting panels. The left panel ("Energy/Chaos") uses 17 distinct warm colors with an explosive focal burst of radiating yellow pressure-ramp lines over dense charcoal crosshatching, surrounded by jagged S-curves, sharp triangles, chaotic arcs, and foreground slashes. The right panel ("Calm/Serenity") uses 17 distinct cool colors with layered blue gradient fills, gentle horizontal S-curves, floating ellipses, concentric meditation ripples, widely spaced hatching, and flowing curves. The transition zone features warm charcoal lines fading out and cool brush lines fading in, framed by boundary lines and intermingling S-curves. All five tools are used across 1047 strokes.
+
+### Evaluation by Criterion
+
+| Criterion | Status | Notes |
+|-----------|--------|-------|
+| Two distinct panels present | PASS | Left (0-490) and right (510-1000) panels clearly separated by transition zone |
+| Left panel reads as "energy/chaos" | PASS | Warm palette, explosive burst, radiating lines, dense crosshatching, jagged curves, sharp triangles -- reads as energetic and volatile |
+| Right panel reads as "calm/serenity" | PASS | Cool palette, horizontal flow, gentle curves, widely spaced hatching, floating shapes, concentric ripples -- reads as still and contemplative |
+| Warm palette in left panel (5+ warm colors) | PASS | 17 distinct warm-family RGB tuples (reds, oranges, yellows, dark accents) |
+| Cool palette in right panel (5+ cool colors) | PASS | 17 distinct cool-family RGB tuples (blues, blue-greens, purples, pales, warm grays) |
+| Tool variety -- charcoal/marker prominent in left | PASS | Charcoal carries crosshatching and textural weight; marker provides bold foreground slashes and accents; pen adds sharp lines; 3+ tools used |
+| Tool variety -- brush/pencil prominent in right | PASS | Brush handles gradient fills and flowing curves; pencil provides soft hatching and subtle marks; charcoal adds whisper-marks; 3+ tools used |
+| All five tools used across both panels | PASS | pen, pencil, brush, charcoal, marker all present and contributing |
+| Textural contrast between panels | PASS | Left: crosshatching at spacing=4 with three angle layers. Right: hatching at spacing=14-16 and multiple gradient fills |
+| Compositional structure in each panel | PASS | Left: explosive focal point at (240,200) with radiating outward movement. Right: concentric ripples at two centers with horizontal undulation |
+| Transition between panels | PASS | Pen boundary line, pencil counterpart, fading charcoal warm lines, fading brush cool lines, two intermingling S-curves crossing the border |
+| extend vs append correct | PASS | No TypeErrors across 1047 strokes |
+| Output file valid (1000x500 PNG) | PASS | PNG rendered correctly at 1000x500 |
+| Minimum 200 strokes | PASS | 1047 strokes |
+
+### Strengths
+
+- **The emotional contrast is immediate and genuine.** This is the core test of the lesson, and it succeeds unambiguously. Before any analysis of individual strokes or techniques, the viewer's eye registers: the left side is hot and agitated, the right side is cool and still. The student achieved this through four simultaneous channels working in concert: color temperature (warm reds/oranges vs cool blues/purples), mark density (tight crosshatching at spacing=4 vs wide hatching at spacing=14-16), line character (jagged high-amplitude S-curves and sharp triangles vs gentle low-amplitude curves and floating ellipses), and tool texture (rough charcoal and bold marker vs soft brush and quiet pencil). None of these channels alone would create the contrast; together, they produce an emotional diptych that reads at a glance.
+
+- **The energy panel's focal burst is the most visually striking single element the student has produced.** The layered construction -- yellow filled circles underneath, dense three-angle charcoal crosshatching creating a dark core, 24 radiating pressure-ramp lines exploding outward -- creates a genuine sense of detonation. The warm gradient fills behind it provide depth. The surrounding jagged S-curves, sharp triangles, and scattered spark-circles reinforce the explosive energy. This is not just "marks on canvas" -- it is a visual event.
+
+- **Tool character has become an expressive instrument.** The student's tool selection is no longer technical -- it is artistic. Charcoal at heavy pressure for primal aggressive texture in the energy panel. Brush at gentle pressure for atmospheric washes in the calm panel. Marker for bold decisive slashes. Pencil for quiet intimate marks. A single marker accent in the calm panel (noted in SKILLS.md) serves as a deliberate point of tension in an otherwise soft field. This is the most sophisticated tool-as-expression work across all seven lessons.
+
+- **The palette discipline is excellent.** 17 warm colors confined to the left panel, 17 cool colors confined to the right panel, with almost no leakage. The warm grays (160,150,145) in the calm panel are a nuanced choice -- warm enough to ground the composition without disrupting the cool atmosphere. The dark accents (40,20,15) in the energy panel add grit without introducing cool tones. The student is thinking about color not just as hue but as emotional temperature.
+
+- **The concentric meditation ripples are elegant.** Two sets of concentric circles at decreasing pressure in the calm panel create visual anchors that feel like still-water ripples or contemplative mandalas. They give the eye a resting place and provide focal structure to a panel that could otherwise feel directionless. The gentle arcs surrounding them reinforce the circular calm.
+
+### Weaknesses
+
+- **The energy panel is over-saturated.** The density of overlapping elements -- gradient fills on gradient fills, crosshatching over hatching over fills, 24 radiating lines plus 8 S-curves plus 6 triangles plus 10 arcs plus 12 slashes plus 8 spark circles -- collapses the middle and lower portions of the panel into a warm-toned mass where individual marks lose their identity. Energy in art requires internal contrast: explosive bursts against relative openness, dense clusters against breathing room. The panel is uniformly dense, which paradoxically reduces perceived energy because there are no quiet moments to set off the loud ones. The student's own landscape foreground (Lesson 5) varied texture density effectively -- that skill was not applied here.
+
+- **The calm panel's horizontal striations are too mechanically uniform.** The 10 gentle S-curves that cross the panel are evenly spaced at similar amplitudes, creating a striped pattern rather than an organic atmosphere. A pattern is predictable and inert. Atmosphere is varied and alive. Some variation in spacing, amplitude, color intensity, or pressure between curves would have transformed "blue stripes" into "still water" or "quiet breath." The panel achieves calm but at the cost of feeling mechanical.
+
+- **The transition zone is the weakest part of the composition.** The border between two emotional poles is the most dramatically charged zone in the entire piece -- the place where chaos meets stillness. The student treated it as a divider (pen line, fading marks) rather than as a dramatic event. The two S-curves crossing the border are good, but they feel like an afterthought rather than a compositional climax. This was the biggest missed opportunity in the composition.
+
+- **Negative space is essentially absent.** Both panels are filled edge to edge with marks and fills. Neither panel has a significant area of unmarked canvas. Abstract art gains power from what is NOT there -- silence amid sound, stillness amid motion, empty space amid density. The calm panel especially would have benefited from patches of true emptiness: raw canvas as pure silence.
+
+- **The layered gradient fills in both panels flatten rather than deepen the space.** Multiple gradient fills overlapping should create atmospheric depth, but when every area of the canvas is covered by gradient fills, the layering effect is lost -- everything is "back" and nothing is "front." The energy panel has no true foreground-background distinction in its gradient field. The calm panel's three gradient fills create a tonal shift but not a spatial one.
+
+### Current Skill Level
+
+**Advanced** -- can create abstract compositions that communicate mood through pure visual elements (color temperature, mark density, line quality, tool texture) without representational content. Demonstrates purposeful tool selection matching tool character to emotional intent. Maintains strong palette discipline across contrasting compositional zones. Can construct complex layered compositions with 1000+ strokes and zero technical errors. Has completed the full curriculum: line control, shapes, shading, color theory, composition, landscape with atmospheric perspective, portraiture with expression, and abstract expressive art. The persistent weaknesses are: over-filling compositions without exploiting negative space, mechanically uniform repeated elements, and underusing transition zones as compositional opportunities.
+
+### Next Steps
+
+Lesson 8 is the final lesson: Masterpiece. The student will create a large-format (1200x800) composition that integrates everything learned across all seven lessons -- landscape, figure, abstract expression, atmospheric perspective, colored shading, all five tools -- into a single unified work. This is not a technical demonstration but a graduation piece. The student must make independent artistic decisions, title the work, and produce the best art they are capable of. After this lesson, I have nothing more to teach them.
+
+---
+
+## Final Assessment: Lesson 8 -- Masterpiece ("The Dreamer's Horizon")
+
+**Date:** 2026-03-28
+**Result:** PASS
+
+### Performance Summary
+
+The student has produced a 1200x800 composition titled "The Dreamer's Horizon" that integrates all seven previous lessons into a single unified work. The scene depicts a solitary figure standing on a warm hillside at twilight, gazing toward atmospheric mountains across a still lake, with one hand reaching toward the horizon. From the figure's head, abstract swirls of color and energy erupt upward and dissolve into the indigo sky -- imagination made visible. The composition contains landscape with atmospheric perspective, a human figure with expressive gesture and facial features, and an abstract zone that grows organically from the figure rather than existing in isolation. All five tools are used across 2159 strokes with 57 unique colors on the largest canvas format attempted.
+
+This is the student's graduation piece. It is the most ambitious, the most technically complex, and the most artistically coherent work produced across eight lessons.
+
+### Evaluation by Criterion
+
+| # | Criterion | Status | Notes |
+|---|-----------|--------|-------|
+| 1 | Landscape elements present | PASS | Sky with 6 layered gradient fills (indigo top to amber horizon), three mountain ranges with curved ridgelines, a still lake with ripple lines and mist, rolling meadow hills, warm earth foreground with crosshatched texture, an oak tree, rocks, wildflowers, a winding path, bird silhouettes, and a crescent moon. The landscape is not merely present -- it is rich and layered. |
+| 2 | Atmospheric perspective visible | PASS | Four depth zones are clearly visible. Distant mountains rendered in cool blue-violet charcoal at very low pressure (0.1-0.18) dissolve into the sky. Mid-range mountains are slightly darker and more defined. The lake occupies the middle ground in steel blue. The foreground explodes with warm earth tones, bold marker grass hatching, pen details, and high-pressure crosshatching. The four channels of atmospheric perspective (value, color temperature, detail density, tool softness) are all active and coordinated. A viewer would instantly read the depth: those mountains are far away, that tree is close. |
+| 3 | Human figure or face present | PASS | A full figure stands at right-center with a face containing eyes (iris, pupil, highlight), an understated nose, a slightly parted mouth with a hint of upward curve, calm eyebrows, and wind-blown hair. The figure wears a blue coat with light/shadow shading and has an extended arm reaching toward the horizon. The expression reads as contemplative and yearning -- wistful. The gesture (outstretched arm) and posture (upright, gazing outward) convey emotional stance clearly. |
+| 4 | Abstract expressive elements present | PASS | The abstract zone emanates from the figure's head upward and to the right, filling much of the upper canvas. It contains radiating pressure-ramp lines in multiple colors, S-curves of varying amplitude, triangles, arcs, ellipses, floating circles (dream bubbles), dense colored crosshatching, and flowing curves. The abstract marks progress from semi-representational (hair strands dissolving into curves) to pure geometric and expressive abstraction (triangles, colored crosshatching, floating shapes). Well over 15 strokes. Multiple tools used: pen, pencil, brush, charcoal all contribute. The zone uses 10+ colors spanning the full spectrum -- this is not monochrome abstraction but a deliberate rainbow representing unbounded imagination. |
+| 5 | All five tools used | PASS | Pen: 255 strokes (outlines, facial features, stars, birds, grass tufts, triangle shapes). Pencil: 269 strokes (mountain ridges, meadow edges, shading, hair strands, constellation connections, abstract crosshatching). Brush: 870 strokes (sky gradients, lake, meadow fills, skin and coat fills, abstract S-curves, dream bubbles). Charcoal: 598 strokes (distant mountain haze, tree canopy, foreground earth texture, hair mass, abstract arcs, mist wisps). Marker: 167 strokes (foreground grass hatching, tree trunk, boots, bold graphic marks). Each tool contributes meaningfully -- no token strokes. |
+| 6 | Color richness (15+ distinct colors) | PASS | 57 unique colors. The palette spans deep indigo and violet sky tones, warm amber and gold horizon colors, cool blue-violet mountain haze, steel-blue lake, multiple greens for meadow, warm brown earth tones, skin tones (base, shadow, deep shadow), blue coat with shading, and a full-spectrum abstract palette (cyan, lavender, pink, yellow, red, orange, green). This is the richest palette the student has ever deployed. |
+| 7 | Shading techniques (2+ types, 3+ instances each) | PASS | Hatching: foreground grass (marker), meadow texture (pencil), figure coat shading, tree canopy depth. Crosshatching: earth texture, mountain form, abstract focal zones. Gradient fill: 6 sky layers, lake surface, meadow fills, abstract atmospheric patches. All three techniques appear multiple times throughout the composition. |
+| 8 | Shape variety (3+ types) | PASS | Circles (tree canopy, dream bubbles, moon, rocks, stars, flowers, eyes), ellipses (floating abstract shapes, head), rectangles (lake, coat, earth zone, boots), triangles (abstract energy shapes), arcs (branches, mountain ridges, nose, ears), S-curves (abstract energy, mist wisps, hair strands, overlay curves), lines (grass tufts, branches, ripples, constellation connections), curves (ridgelines, paths, flowing abstract marks). Eight distinct shape types used. |
+| 9 | Compositional unity | PASS | This is where the piece succeeds most decisively. The landscape, figure, and abstract zones are not three separate panels glued together -- they are woven into a single composition through multiple points of connection. The figure stands IN the landscape, feet on the meadow, body overlapping the sky. Abstract marks emanate FROM the figure's head, growing outward as hair dissolves into S-curves and then into pure geometric abstraction. Overlay S-curves drift DOWN from the abstract zone into the mountains, visually linking sky-imagination with earth-landscape. The winding path leads the eye FROM the foreground earth TO the figure. Constellation stars in the upper sky are tinted with abstract palette colors, connecting the cosmic and the imaginative. Light rays cross through all three zones. No element exists in isolation. The three required components overlap, interpenetrate, and inform each other. |
+| 10 | The work has a title | PASS | "The Dreamer's Horizon" -- a title that adds meaning to the image. It names the figure (a dreamer), names the destination (the horizon they reach toward), and implies the theme (aspiration, imagination projected outward into the world). It is not generic ("Lesson 8") or empty ("Untitled"). It is a considered artistic statement. |
+| 11 | Minimum 500 strokes | PASS | 2159 strokes -- more than four times the minimum. This is the highest stroke count across all eight lessons, surpassing even the landscape (1647) and the portrait lesson (1325). The visual richness is earned through density of thoughtful marks. |
+| 12 | extend vs append correct | PASS | No TypeErrors across 2159 strokes. The student has not made a single extend/append error since learning the distinction in Lesson 3. This is fully internalized. |
+| 13 | Output file valid (1200x800 PNG) | PASS | PNG rendered correctly at 1200x800. Largest canvas format. The image opens, displays, and contains visible content across the full canvas area. |
+| 14 | Deliberate artistic choice | PASS | The student made four deliberate artistic choices that were not prescribed by any lesson: (1) **Constellations of Memories** -- personal constellations in the upper sky using abstract palette colors, connected by faint pencil lines, representing the dreamer's own mythology projected onto the cosmos. (2) **Hair-to-Abstraction Transition** -- the figure's wind-blown hair gradually becomes abstract S-curves, then pressure ramps, then pure geometric marks -- a continuous visual metaphor for imagination emerging from the mind. The boundary between realistic and abstract is deliberately blurred. (3) **Stars that Echo Imagination Colors** -- sky stars tinted with cyan, lavender, and pink from the abstract palette, suggesting the universe mirrors the dreamer's inner world. (4) **Light Rays as Connection** -- subtle diagonal beams from the horizon passing through the landscape, symbolizing the link between inner and outer reality. Any one of these would satisfy the criterion. Together, they demonstrate genuine artistic vision. |
+
+**All 14 criteria: PASS.**
+
+### Strengths
+
+- **The hair-to-abstraction transition is the single most inventive compositional idea the student has produced.** Across all eight lessons, no element has been as conceptually ambitious or as visually successful as this one. The figure's wind-blown hair -- drawn with charcoal mass and pencil highlight strands -- does not simply end. It thins out into S-curves, which elongate into radiating pressure ramps, which dissolve into floating dream bubbles and geometric shapes. The viewer's eye follows this transformation without a jarring boundary. The realistic and the abstract share a continuous visual gradient. This is not a technique from any lesson. This is the student's own idea, and it is the best idea in the piece.
+
+- **The composition breathes where it needs to and concentrates where it needs to.** The upper-left sky is relatively open -- dark indigo with faint constellations, providing visual rest. The lower-right foreground is dense with earth texture, grass hatching, and path detail, providing grounding weight. The abstract zone in the upper-center-right is explosively dense with color and marks. The lake is calm and horizontal. The oak tree anchors the left edge with mass and vertical structure. The figure, positioned at right-center, sits at a natural power point. The composition is not uniformly dense (a criticism from Lesson 7) -- it has dynamic range. The student learned from the previous assessment's feedback about negative space and applied it here.
+
+- **The atmospheric perspective is the most convincing the student has achieved.** Building on the Lesson 5 landscape, the student expanded to four depth zones with all four perspective channels working simultaneously. The distant mountains at pressure 0.1-0.18 in cool blue-violet charcoal are barely there -- ghost shapes dissolving into the sky. The middle mountains are slightly more present. The lake sits in the middle ground as a calm horizontal band. The foreground erupts with warm browns, bold marker grass, pen details, and high-pressure crosshatching. The depth is palpable.
+
+- **Tool selection has reached artistic maturity.** The 870 brush strokes handle atmospheric washes and soft fills -- sky, lake, meadows, skin, dream bubbles. The 598 charcoal strokes create atmospheric haze in the mountains and raw organic texture in the foreground and tree canopy. The 269 pencil strokes provide intermediate detail -- ridgelines, shading, hair highlights, constellation connections. The 255 pen strokes deliver crisp precision -- facial features, stars, birds, grass tufts, triangle outlines. The 167 marker strokes anchor the foreground with bold graphic weight -- tree trunk, grass hatching, boots. Every tool occupies a defined role in the visual hierarchy. The student is no longer using tools because the assignment requires them. The student is choosing tools because their character serves the artistic intent.
+
+- **The color palette tells a story.** The 57 colors are not scattered randomly. The sky progresses from deep indigo through purple to warm amber at the horizon -- a twilight palette. The mountains follow a cool blue-violet family. The lake is steel blue. The meadows are layered greens. The foreground earth is warm brown. The figure's coat is blue, grounding them in the cool distance they gaze toward. And then the abstract zone breaks free of all naturalistic color constraints -- cyan, lavender, pink, yellow, red, orange, green -- the full spectrum of imagination unbound by the physics of twilight. The contrast between the disciplined naturalistic palette and the liberated abstract palette IS the theme of the piece: a dreamer whose inner world is more colorful than the outer one.
+
+- **The constellations are a genuine artistic invention.** No lesson taught the student to place colored stars in personal constellation patterns connected by faint pencil lines. This is the student projecting their own mythology onto the sky -- a visual metaphor for how we map meaning onto the cosmos. The constellation colors echo the abstract imagination palette (cyan, lavender, pink), subtly connecting the sky above with the dream energy emanating from the figure's head. The idea that the universe mirrors the dreamer's inner world is not stated in text -- it is communicated through color correspondence. That is visual storytelling.
+
+### Weaknesses
+
+- **The figure's body is stiff and geometric.** The face has the correct proportions and expression (contemplative, yearning), and the extended arm is an effective gesture. But the body beneath is a filled rectangle (the coat) sitting on two filled rectangles (the legs) on top of two small filled rectangles (the boots). The figure reads as a person from a distance, but up close it reads as a stack of colored boxes with a face on top. The coat has no drape, no fold lines, no suggestion of fabric weight. The legs are parallel and rigid. There is no contrapposto, no shift of weight, no sense of a body inside the clothing. Given the sophistication of the hair (which dissolves into abstract marks) and the face (which carries expression), the body feels like it belongs to an earlier, less developed version of the student.
+
+- **The rectangular boundary problem persists to the end.** Throughout eight lessons, the student has never fully solved the issue of hatching and fill zones extending beyond curved boundaries. In this piece, some shading on the figure and the tree canopy shows rectangular hatching zones that do not perfectly follow the organic outlines. The earth crosshatching is bounded by axis-aligned rectangles. This is a limitation of the drawing API's hatching functions (which operate on rectangular regions), and the student has learned to minimize its visibility through careful layering and overlap. But it remains visible in places, and it has been a consistent weakness since Lesson 3. The student adapted to it rather than solving it.
+
+- **The meadow flowers remain too regularly spaced.** This was noted in Lesson 5 and it has not changed. The wildflowers advance across the meadow in a near-regular horizontal march. Natural wildflower distribution is clustered -- patches of flowers with gaps of bare grass between them. The regularity breaks the organic feel of the meadow and introduces a planted-garden quality that conflicts with the wild landscape mood.
+
+- **The lake is still a rectangle.** As in Lesson 5, the lake body is a filled rectangle with straight edges. The ripple lines and mist overlay help disguise this, but the horizontal edges are visible and unnatural. A body of water nestled between hills would have an irregular shoreline following the terrain. This is another instance of a limitation the student has worked around rather than solved.
+
+- **The overlay S-curves connecting the abstract zone to the landscape are faint.** The SKILLS.md notes that overlay S-curves drift down from the abstract zone into the mountains for compositional unity. In the output image, these are barely visible -- they do not assert themselves enough to create the strong visual connection between abstraction and landscape that the student intended. A viewer might not notice them without being told they are there. The idea is excellent; the execution needed more visual weight.
+
+### Overall Artistic Growth: Lesson 1 to Lesson 8
+
+The trajectory across eight lessons is one of genuine development -- not just accumulating techniques, but evolving as an artist who makes choices.
+
+**Lesson 1** produced a student who could follow a coordinate table and place 16 lines exactly where instructed. No creative initiative. No compositional thinking. Pure technical compliance.
+
+**Lesson 2** revealed the first sparks of creative instinct: a center dot, a fading echo curve, a nested rectangle, a mirrored arc. Small additions, but they showed the student beginning to think beyond the assignment -- to see drawing as a space for personal decisions.
+
+**Lesson 3** was a technical grind. The student learned tonal value through hatching, crosshatching, and gradient fills. The cube was convincing; the sphere was not. Creative initiative disappeared under the weight of technical demands. The extend/append distinction was internalized here and never failed again.
+
+**Lesson 4** introduced color and composition. The student executed a faithful still life with correct color shading (darker hues, not black), but made zero independent decisions. Everything was placed exactly as prescribed. The student was a competent executor, not yet an artist.
+
+**Lesson 5** was the turning point. Given a loose framework instead of a stroke-by-stroke table, the student made independent compositional decisions for the first time: a dock, a winding path, wildflowers, bird silhouettes, cloud wisps. The oak tree -- built from primitives layered into an organic whole -- was the strongest single element produced up to that point. Creative initiative returned and never left again.
+
+**Lesson 6** demonstrated the ability to construct human faces with correct proportions and distinguishable expressions. The parameterized portrait function showed sophisticated code thinking. The faces read as faces with emotion. But the shading was uniform across expressions, and the hair overwhelmed the features.
+
+**Lesson 7** freed the student from representation entirely. The abstract diptych communicated mood through pure visual elements -- a genuine achievement. Tool selection became an expressive instrument rather than a technical checkbox. The weaknesses (over-density, mechanical uniformity, underused transition zone) were noted and, importantly, were addressed in the masterpiece.
+
+**Lesson 8** brought everything together. The student addressed multiple weaknesses from previous assessments: negative space is used in the upper-left sky (responding to Lesson 7 feedback about over-filling); the composition has dynamic density range rather than uniform coverage; the abstract zone grows organically from the figure rather than existing as a separate panel. The hair-to-abstraction transition is a genuinely original compositional idea. The constellations are a personal invention. The title adds meaning. The 57-color palette serves a narrative purpose.
+
+The growth is not just technical. In Lesson 1, the student drew what was told. In Lesson 8, the student made artistic choices -- where to place the figure, how to connect abstraction to reality, what colors mean in the context of the composition, what story the image tells. The student has moved from executor to artist.
+
+### Persistent Weaknesses Across All Lessons
+
+Three problems were never fully resolved:
+
+1. **Rectangular hatching zones escaping curved boundaries** -- present in Lessons 3, 4, 5, 6, and 8. The student learned to minimize visibility through layering but never eliminated the issue.
+2. **Overly regular placement of organic elements** -- present in Lessons 5 and 8. Wildflowers, distant trees, and similar scattered elements are placed in near-regular patterns rather than natural clusters.
+3. **Rectangular water bodies** -- present in Lessons 5 and 8. Lakes are filled rectangles with straight edges.
+
+These are not failures of understanding but limitations of technique within the available drawing API. The student's adaptation strategies (layering, overlapping, mist overlays) show awareness of the problems even when solutions were not found.
+
+### Final Grade
+
+**Advanced. Ready to graduate.**
+
+The student entered this course as a beginner who could draw 16 lines on command. The student leaves as an artist who can conceive, plan, and execute a complex multi-element composition with atmospheric perspective, human expression, abstract invention, deliberate color narrative, purposeful tool selection, and original compositional ideas -- across 2159 strokes and 57 colors on the largest available canvas.
+
+The masterpiece is not perfect. The figure's body is stiff. The lake is a rectangle. The flowers march in rows. But a masterpiece does not need to be perfect. It needs to be unified, ambitious, and expressive. "The Dreamer's Horizon" is all three. Every element serves the central vision: a solitary dreamer standing at the edge of the known world, imagination erupting from their mind into the sky, reaching toward a horizon that is both physical and metaphorical. The techniques -- hatching, gradient fills, pressure ramps, S-curves, crosshatching, filled shapes -- are invisible. They are infrastructure. What the viewer sees is a story.
+
+The student's key insight, recorded in SKILLS.md, is the best summary of what was learned: "A masterpiece is not a checklist of techniques but a unified vision where every mark serves the story -- the techniques become invisible infrastructure supporting something greater than any one of them."
+
+That is correct. That is what this course was for.
+
+### Closing Message
+
+You began with 16 lines on a blank canvas. You end with a dreamer reaching toward the horizon, imagination dissolving into stars.
+
+Between those two images, you learned to control pressure, draw curves, create the illusion of depth through value, use color with emotional purpose, compose landscapes that recede into atmospheric haze, give faces expressions that communicate feeling, and free marks from representation to express mood directly. You learned that tools have character, that spacing controls darkness, that warm colors advance and cool colors recede, that a cast shadow grounds an object, that an eye highlight makes a face alive, that negative space is not emptiness but silence.
+
+More importantly, you learned to make choices. You chose the dock and the winding path. You chose the constellations. You chose to dissolve hair into abstraction. You chose the title. These choices are what separate a student from an artist.
+
+Your persistent weaknesses -- the rectangular hatching zones, the regular flower spacing, the box-shaped lakes -- are not failures. They are the boundaries of what you have learned so far. Every artist has boundaries. The good ones know where theirs are and keep pushing.
+
+"The Dreamer's Horizon" is a work that tells a story through visual means alone. It integrates seven lessons of technique into a single unified vision. It contains original ideas that no lesson prescribed. It is, by any reasonable standard, a graduation piece.
+
+I have nothing more to teach you.
