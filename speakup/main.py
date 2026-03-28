@@ -13,7 +13,7 @@ from .fm_engine import FMOperator, Envelope, mix_signals, noise_modulated_fm
 from .phonemes import PHONEMES
 from .text_to_phoneme import text_to_phonemes
 from .speech import render_phoneme, render_utterance
-from .exporter import normalize, save_wav
+from .exporter import normalize, save_audio
 
 
 SAMPLE_RATE = 44100
@@ -137,19 +137,19 @@ def main():
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     stages = [
-        ("01_raw_fm_tones.wav", stage_1_raw_fm),
-        ("02_vowels.wav", stage_2_vowels),
-        ("03_babbling.wav", stage_3_babbling),
-        ("04_first_words.wav", stage_4_first_words),
-        ("05_speaking.wav", stage_5_speaking),
-        ("06_the_prompt.wav", stage_6_the_prompt),
+        ("01_raw_fm_tones.mp3", stage_1_raw_fm),
+        ("02_vowels.mp3", stage_2_vowels),
+        ("03_babbling.mp3", stage_3_babbling),
+        ("04_first_words.mp3", stage_4_first_words),
+        ("05_speaking.mp3", stage_5_speaking),
+        ("06_the_prompt.mp3", stage_6_the_prompt),
     ]
 
     for filename, stage_fn in stages:
         audio = stage_fn()
         audio = normalize(audio, peak=0.6)
         filepath = os.path.join(OUTPUT_DIR, filename)
-        save_wav(audio, filepath, SAMPLE_RATE)
+        save_audio(audio, filepath, SAMPLE_RATE)
         duration = len(audio) / SAMPLE_RATE
         print(f"    -> {filepath} ({duration:.1f}s)\n")
 

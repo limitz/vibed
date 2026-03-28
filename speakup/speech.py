@@ -58,10 +58,9 @@ def render_phoneme(spec: PhonemeSpec, duration: float, f0: float,
         return np.zeros(n)
 
     result = mix_signals(signals)
-    # Normalize to prevent clipping
-    peak = np.max(np.abs(result))
-    if peak > 0:
-        result = result / peak * 0.4
+    # Scale by number of signals to keep consistent level (avoid per-phoneme
+    # normalization which causes amplitude jumps at segment boundaries)
+    result = result / max(len(signals), 1) * 0.8
     return result
 
 
@@ -131,30 +130,46 @@ def render_utterance(phonemes: list[str], sample_rate: int = 44100,
             specs.append(PHONEMES.get("SIL", PHONEMES["AH"]))
 
     f0_contour = apply_intonation(phonemes, f0_base)
-    transition_dur = 0.040 / speed  # 40ms transitions for smoother speech
+    overlap_dur = 0.040 / speed  # 40ms overlap region
+    overlap_samples = int(overlap_dur * sample_rate)
 
-    segments = []
+    # Render all phonemes
+    rendered = []
     for i, spec in enumerate(specs):
         duration = spec.duration / speed
         f0 = f0_contour[i]
+        audio = render_phoneme(spec, duration, f0, sample_rate)
+        rendered.append(audio)
 
-        # Shorten phoneme to make room for transitions
-        if len(specs) > 1:
-            effective_dur = max(duration - transition_dur, 0.01)
-        else:
-            effective_dur = duration
+    if len(rendered) == 1:
+        return rendered[0]
 
-        audio = render_phoneme(spec, effective_dur, f0, sample_rate)
-        segments.append(audio)
+    # Overlap-add: each phoneme overlaps with the next by overlap_samples.
+    # In the overlap region, use equal-power crossfade.
+    total_len = sum(len(r) for r in rendered) - overlap_samples * (len(rendered) - 1)
+    total_len = max(total_len, 0)
+    result = np.zeros(total_len)
 
-        # Add transition to next phoneme
-        if i < len(specs) - 1:
-            next_spec = specs[i + 1]
-            next_f0 = (f0 + f0_contour[i + 1]) / 2
-            trans = interpolate_phonemes(spec, next_spec, transition_dur, next_f0, sample_rate)
-            segments.append(trans)
+    pos = 0
+    for i, audio in enumerate(rendered):
+        n = len(audio)
+        if i > 0 and overlap_samples > 0:
+            # Fade in this segment over the overlap region
+            fade_len = min(overlap_samples, n)
+            t_fade = np.linspace(0, np.pi / 2, fade_len)
+            audio[:fade_len] = audio[:fade_len] * np.sin(t_fade)
+        if i < len(rendered) - 1 and overlap_samples > 0:
+            # Fade out this segment over the overlap region
+            fade_len = min(overlap_samples, n)
+            t_fade = np.linspace(0, np.pi / 2, fade_len)
+            audio[-fade_len:] = audio[-fade_len:] * np.cos(t_fade)
 
-    return np.concatenate(segments)
+        end = min(pos + n, total_len)
+        actual = end - pos
+        result[pos:end] += audio[:actual]
+        pos += n - overlap_samples
+
+    return result
 
 
 def apply_intonation(phonemes: list[str], f0_base: float = 120.0) -> list[float]:

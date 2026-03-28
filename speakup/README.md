@@ -27,12 +27,12 @@ The app generates 6 audio files showing FM synthesis "learning to speak":
 
 ## Output Files
 
-- [01_raw_fm_tones.wav](output/01_raw_fm_tones.wav) — Pure FM tones and modulation sweeps (3.9s)
-- [02_vowels.wav](output/02_vowels.wav) — Individual vowels: AH, EE, EH, OH, OO, AE, IH, UH (4.8s)
-- [03_babbling.wav](output/03_babbling.wav) — Consonant-vowel babbling: ba, da, ma, pa, ta, ka (4.3s)
-- [04_first_words.wav](output/04_first_words.wav) — First words: mama, papa, hello, hi, no, yes (4.2s)
-- [05_speaking.wav](output/05_speaking.wav) — Full sentences: "Hello world", "I am learning to speak" (5.2s)
-- [06_the_prompt.wav](output/06_the_prompt.wav) — "Using only FM synthesis, learn how to speak" (4.7s)
+- [01_raw_fm_tones.mp3](output/01_raw_fm_tones.mp3) — Pure FM tones and modulation sweeps (3.9s)
+- [02_vowels.mp3](output/02_vowels.mp3) — Individual vowels: AH, EE, EH, OH, OO, AE, IH, UH (4.8s)
+- [03_babbling.mp3](output/03_babbling.mp3) — Consonant-vowel babbling: ba, da, ma, pa, ta, ka (4.3s)
+- [04_first_words.mp3](output/04_first_words.mp3) — First words: mama, papa, hello, hi, no, yes (4.2s)
+- [05_speaking.mp3](output/05_speaking.mp3) — Full sentences: "Hello world", "I am learning to speak" (5.2s)
+- [06_the_prompt.mp3](output/06_the_prompt.mp3) — "Using only FM synthesis, learn how to speak" (4.7s)
 
 ## Architecture
 
