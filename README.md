@@ -98,6 +98,15 @@ Console-based Google Calendar client powered by the Google Calendar MCP. Feature
 
 ![Google Calendar Client](gcalendar/screenshot.png)
 
+### [2001: A Space Odyssey](2001/)
+
+**Prompt:**
+> `Make an application that re-enacts the entire film "2001 a space odyssey" using only ascii art. Add controls to fast-forward / rewind.`
+
+Terminal-based ASCII art re-enactment of Kubrick's 2001. Ten iconic scenes rendered procedurally as pure functions of time — from the Dawn of Man through HAL 9000 to the Star Child — with full playback controls including rewind, fast-forward, and scene skipping.
+
+![2001: A Space Odyssey](2001/screenshot.png)
+
 ### [Hit Song](hitsong/)
 
 **Prompt:**
