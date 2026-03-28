@@ -10,6 +10,21 @@ A collection of projects built entirely by AI through vibe coding. Each subfolde
 
 ## Projects
 
+### [SpeakUp](speakup/)
+
+> `Using only FM synthesis, learn how to speak.`
+
+Python application that uses pure FM synthesis to generate human speech from text. Models vocal formants with FM operator pairs, synthesizes vowels, consonants, and coarticulated speech. Demonstrates a progressive "learning to speak" journey across 6 audio files — from raw FM tones to full sentences.
+
+![SpeakUp](speakup/screenshot.png)
+
+- [01_raw_fm_tones.wav](speakup/output/01_raw_fm_tones.wav) — Pure FM tones and modulation sweeps (3.9s)
+- [02_vowels.wav](speakup/output/02_vowels.wav) — Individual vowels: AH, EE, EH, OH, OO, AE, IH, UH (4.8s)
+- [03_babbling.wav](speakup/output/03_babbling.wav) — Consonant-vowel babbling (4.3s)
+- [04_first_words.wav](speakup/output/04_first_words.wav) — First words: mama, papa, hello, hi, no, yes (4.2s)
+- [05_speaking.wav](speakup/output/05_speaking.wav) — Full sentences (5.2s)
+- [06_the_prompt.wav](speakup/output/06_the_prompt.wav) — "Using only FM synthesis, learn how to speak" (4.7s)
+
 ### [Tetris](tetris/)
 
 > `Make a cool Tetris game for the console.`
@@ -67,21 +82,6 @@ Python application that composes and synthesizes a complete synth-pop song ("Ele
 ![Hit Song](hitsong/screenshot.png)
 
 🎵 **[Listen to Electric Dreams (MP3)](hitsong/hitsong.mp3)**
-
-### [SpeakUp](speakup/)
-
-> `Using only FM synthesis, learn how to speak.`
-
-Python application that uses pure FM synthesis to generate human speech from text. Models vocal formants with FM operator pairs, synthesizes vowels, consonants, and coarticulated speech. Demonstrates a progressive "learning to speak" journey across 6 audio files — from raw FM tones to full sentences.
-
-![SpeakUp](speakup/screenshot.png)
-
-- [01_raw_fm_tones.wav](speakup/output/01_raw_fm_tones.wav) — Pure FM tones and modulation sweeps (3.9s)
-- [02_vowels.wav](speakup/output/02_vowels.wav) — Individual vowels: AH, EE, EH, OH, OO, AE, IH, UH (4.8s)
-- [03_babbling.wav](speakup/output/03_babbling.wav) — Consonant-vowel babbling (4.3s)
-- [04_first_words.wav](speakup/output/04_first_words.wav) — First words: mama, papa, hello, hi, no, yes (4.2s)
-- [05_speaking.wav](speakup/output/05_speaking.wav) — Full sentences (5.2s)
-- [06_the_prompt.wav](speakup/output/06_the_prompt.wav) — "Using only FM synthesis, learn how to speak" (4.7s)
 
 ## Built with
 
