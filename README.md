@@ -10,20 +10,13 @@ A collection of projects built entirely by AI through vibe coding. Each subfolde
 
 ## Projects
 
-### [SpeakUp](speakup/)
+### [Washing Machine](washingmachine/)
 
-> `Using only FM synthesis, learn how to speak.`
+> `Use svg to create an image of a washing machine. Iterate and refine until it looks as real as possible. Store as jpeg.`
 
-Python application that uses pure FM synthesis to generate human speech from text. Models vocal formants with FM operator pairs, synthesizes vowels, consonants, and coarticulated speech. Demonstrates a progressive "learning to speak" journey across 6 audio files — from raw FM tones to full sentences.
+Python application that generates a photorealistic washing machine image using SVG with 5 iterative refinement passes (base shapes, materials, lighting, details, polish), then converts to JPEG. Features chrome trim, glass door with visible drum and clothes, water tint, control panel with LCD and knobs, and realistic lighting.
 
-![SpeakUp](speakup/screenshot.png)
-
-- [01_raw_fm_tones.mp3](speakup/output/01_raw_fm_tones.mp3) — Pure FM tones and modulation sweeps (3.9s)
-- [02_vowels.mp3](speakup/output/02_vowels.mp3) — Individual vowels: AH, EE, EH, OH, OO, AE, IH, UH (4.8s)
-- [03_babbling.mp3](speakup/output/03_babbling.mp3) — Consonant-vowel babbling (4.3s)
-- [04_first_words.mp3](speakup/output/04_first_words.mp3) — First words: mama, papa, hello, hi, no, yes (4.2s)
-- [05_speaking.mp3](speakup/output/05_speaking.mp3) — Full sentences (5.2s)
-- [06_the_prompt.mp3](speakup/output/06_the_prompt.mp3) — "Using only FM synthesis, learn how to speak" (4.7s)
+![Washing Machine](washingmachine/screenshot.png)
 
 ### [Tetris](tetris/)
 
@@ -48,6 +41,21 @@ Console-based chess game with a custom AI opponent. Features full chess rules (c
 Console-based Pac-Man game using Python curses. Features a classic maze, 4 ghosts with unique AI personalities (Blinky, Pinky, Inky, Clyde), power pellets, ghost frightened mode, scoring, lives, and level progression.
 
 ![Pac-Man](pacman/screenshot.png)
+
+### [SpeakUp](speakup/)
+
+> `Using only FM synthesis, learn how to speak.`
+
+Python application that uses pure FM synthesis to generate human speech from text. Models vocal formants with FM operator pairs, synthesizes vowels, consonants, and coarticulated speech. Demonstrates a progressive "learning to speak" journey across 6 audio files — from raw FM tones to full sentences.
+
+![SpeakUp](speakup/screenshot.png)
+
+- [01_raw_fm_tones.mp3](speakup/output/01_raw_fm_tones.mp3) — Pure FM tones and modulation sweeps (3.9s)
+- [02_vowels.mp3](speakup/output/02_vowels.mp3) — Individual vowels: AH, EE, EH, OH, OO, AE, IH, UH (4.8s)
+- [03_babbling.mp3](speakup/output/03_babbling.mp3) — Consonant-vowel babbling (4.3s)
+- [04_first_words.mp3](speakup/output/04_first_words.mp3) — First words: mama, papa, hello, hi, no, yes (4.2s)
+- [05_speaking.mp3](speakup/output/05_speaking.mp3) — Full sentences (5.2s)
+- [06_the_prompt.mp3](speakup/output/06_the_prompt.mp3) — "Using only FM synthesis, learn how to speak" (4.7s)
 
 ### [ASCII Art Video](ascii-art-video/)
 
