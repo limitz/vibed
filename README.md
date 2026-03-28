@@ -118,6 +118,15 @@ Python application that composes and synthesizes a complete synth-pop song ("Ele
 
 🎵 **[Listen to Electric Dreams (MP3)](hitsong/hitsong.mp3)**
 
+### [South Park](southpark/)
+
+**Prompt:**
+> `Use SVG do draw an image of eric cartman throwing up on his mom, in his bedroom. Kenny is laughing. Convert to png.`
+
+Python application that generates a South Park scene using SVG — Eric Cartman throwing up on his mom in his bedroom while Kenny laughs — then converts to PNG with CairoSVG.
+
+![South Park](southpark/screenshot.png)
+
 ## Built with
 
 [Claude Code](https://claude.com/claude-code) — Claude Opus 4.6 (`claude-opus-4-6`)
