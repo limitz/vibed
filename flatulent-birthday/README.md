@@ -11,18 +11,21 @@ Then use it to sing happy birthday and save to mp3. Not too loud please.
 
 ## How It Works
 
-The synthesis engine models the acoustics of flatulence from first principles:
+Physically-inspired aeroacoustic model. The sphincter is modeled as an oscillating valve that periodically opens and closes, letting pressurized gas through in bursts:
 
-1. **Sphincter oscillation** — Asymmetric waveform (sawtooth/sine mix) with harmonics and subharmonics from nonlinear tissue dynamics
-2. **Turbulent airflow** — Band-passed noise centered around the fundamental frequency, simulating turbulence through the aperture
-3. **Body cavity resonance** — Formant-like resonances from the gluteal cleft acting as a quarter-wave acoustic waveguide (~10-15cm)
-4. **Amplitude envelope** — Realistic attack/sustain/release with sputtering from irregular muscle tension and micro-stutters
+1. **Aperture oscillation** — The sphincter oscillates as a skewed sawtooth (fast open, slow close). Half-wave rectified to zero (tissue can't open negatively) — this is the key nonlinearity that generates the harmonic-rich "raspberry" buzz, the same mechanism as brass lip buzzes.
+2. **Airflow** — Flow = sqrt(pressure) x aperture. Turbulence noise is pre-filtered to low frequencies and scales with flow velocity (Reynolds number), so noise is embedded in the physics rather than mixed in artificially.
+3. **Buttcheek resonance** — Low-frequency bandpass (40-130 Hz) adds thick, rumbly body from the flesh mass vibrating sympathetically.
+4. **Tissue filtering** — 3rd-order low-pass through surrounding flesh, applied last to kill all HF artifacts.
+5. **Sputter modulation** — Multiple overlapping flutter modes (4-25 Hz) with brief dropouts and rough amplitude noise for the characteristic sputtering quality.
+6. **Pressure envelope** — Randomly crescendo or decrescendo, with monotonic pitch slide (up or down 15-40%) per note.
 
 ### Refinement History
 
-- **V1**: Basic oscillator + filtered noise with amplitude envelope
-- **V2**: Added subharmonics (period-doubling), sphincter flutter, body cavity resonance
-- **V3**: Micro-stutters, frequency drift (pressure decay), soft-clipping saturation, formant-like tissue compliance resonances
+- **V1-V3**: Oscillator + noise approaches — too musical/synthetic
+- **V4-V6**: Chaotic oscillator, pulse-gated noise — timpani/echo artifacts
+- **V7**: Physically-inspired rewrite — half-wave rectified aperture model
+- **V8-V10**: Tuned staccato, buttcheek resonance, sputter depth, pitch slides, aggressive saturation, HF elimination
 
 Every sound is unique due to randomized parameters across all components.
 

@@ -132,7 +132,7 @@ Python application that generates a South Park scene using SVG — Eric Cartman 
 **Prompt:**
 > `Make an application that, given a base frequency and duration, synthesizes the sound of flatulence with those approximate parameters. Make sure synthesis is based solely on scientific, anatomic and acoustic principles, and as the sounds are random in nature, no 2 should ever be the same. Do at least 3 refinements of the algorithm, making sure the sound is indistinguishable from the original. Then use it to sing happy birthday and save to mp3. Not too loud please.`
 
-Python application that synthesizes flatulence sounds from acoustic first principles — sphincter oscillation, turbulent airflow noise, gluteal cleft resonance, and amplitude sputtering — refined across 3 iterations. Then uses the engine to perform "Happy Birthday to You" and exports to MP3.
+Physically-inspired aeroacoustic flatulence synthesizer. Models a half-wave rectified sphincter aperture gating turbulent airflow, with buttcheek resonance, tissue filtering, sputter modulation, and pitch slides — refined across 10 iterations. Performs "Happy Birthday to You" in staccato flatulence and exports to MP3.
 
 ![Flatulent Birthday](flatulent-birthday/screenshot.png)
 
