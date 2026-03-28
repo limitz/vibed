@@ -410,25 +410,34 @@ def build_inbox_screen(grid):
 # ── Render to image ───────────────────────────────────────────────
 
 def render_grid(grid, font) -> Image.Image:
-    """Render the cell grid to a PIL Image."""
+    """Render the cell grid to a PIL Image using pilmoji for emoji support."""
+    from pilmoji import Pilmoji
+
     img_w = COLS * CELL_W
     img_h = ROWS * CELL_H
     img = Image.new("RGB", (img_w, img_h), BG_PRIMARY)
     draw = ImageDraw.Draw(img)
 
+    # Pass 1: draw all background rectangles
     for r in range(ROWS):
         for c in range(COLS):
             cell = grid[r][c]
             x0 = c * CELL_W
             y0 = r * CELL_H
-
-            # Background rectangle
             draw.rectangle([x0, y0, x0 + CELL_W - 1, y0 + CELL_H - 1],
                            fill=cell.bg)
 
-            # Character
-            if cell.char and cell.char != " ":
-                draw.text((x0 + 1, y0 + 2), cell.char, fill=cell.fg, font=font)
+    # Pass 2: render each character individually with pilmoji for emoji support
+    # This preserves monospace alignment — each char gets exactly one cell.
+    with Pilmoji(img) as pilmoji:
+        for r in range(ROWS):
+            for c in range(COLS):
+                cell = grid[r][c]
+                if cell.char == " ":
+                    continue
+                x0 = c * CELL_W + 1
+                y0 = r * CELL_H + 2
+                pilmoji.text((x0, y0), cell.char, fill=cell.fg, font=font)
 
     return img
 
