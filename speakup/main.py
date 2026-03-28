@@ -28,13 +28,13 @@ def stage_1_raw_fm() -> np.ndarray:
     pause = np.zeros(int(0.15 * SAMPLE_RATE))
 
     # Pure sine
-    op = FMOperator(frequency=200, amplitude=0.8)
+    op = FMOperator(frequency=200, amplitude=0.5)
     segments.append(op.generate(t_tone))
     segments.append(pause)
 
     # FM with increasing modulation index
     for mod_idx in [1.0, 3.0, 6.0, 10.0]:
-        op = FMOperator(frequency=400, amplitude=0.7, modulation_index=mod_idx)
+        op = FMOperator(frequency=400, amplitude=0.4, modulation_index=mod_idx)
         modulator = np.sin(2 * np.pi * 200 * t_tone)
         segments.append(op.generate(t_tone, modulator_signal=modulator))
         segments.append(pause)
@@ -42,7 +42,7 @@ def stage_1_raw_fm() -> np.ndarray:
     # Frequency sweep
     t_sweep = np.linspace(0, 1.0, int(1.0 * SAMPLE_RATE), endpoint=False)
     sweep_freq = np.linspace(100, 1000, len(t_sweep))
-    sweep = 0.6 * np.sin(2 * np.pi * np.cumsum(sweep_freq) / SAMPLE_RATE)
+    sweep = 0.4 * np.sin(2 * np.pi * np.cumsum(sweep_freq) / SAMPLE_RATE)
     segments.append(sweep)
     segments.append(pause)
 
@@ -147,7 +147,7 @@ def main():
 
     for filename, stage_fn in stages:
         audio = stage_fn()
-        audio = normalize(audio, peak=0.9)
+        audio = normalize(audio, peak=0.6)
         filepath = os.path.join(OUTPUT_DIR, filename)
         save_wav(audio, filepath, SAMPLE_RATE)
         duration = len(audio) / SAMPLE_RATE

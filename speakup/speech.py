@@ -61,7 +61,7 @@ def render_phoneme(spec: PhonemeSpec, duration: float, f0: float,
     # Normalize to prevent clipping
     peak = np.max(np.abs(result))
     if peak > 0:
-        result = result / peak * 0.7
+        result = result / peak * 0.4
     return result
 
 
@@ -91,7 +91,7 @@ def _render_plosive(spec: PhonemeSpec, duration: float, f0: float,
         )
         # Apply fast decay envelope
         decay = np.exp(-np.linspace(0, 8, len(burst)))
-        result[burst_start:burst_start + len(burst)] = burst * decay * 0.6
+        result[burst_start:burst_start + len(burst)] = burst * decay * 0.3
 
     return result
 
@@ -108,9 +108,10 @@ def interpolate_phonemes(spec_a: PhonemeSpec, spec_b: PhonemeSpec,
     audio_a = render_phoneme(spec_a, transition_duration, f0, sample_rate)
     audio_b = render_phoneme(spec_b, transition_duration, f0, sample_rate)
 
-    # Crossfade
-    fade_out = np.linspace(1.0, 0.0, n)
-    fade_in = np.linspace(0.0, 1.0, n)
+    # Equal-power (cosine) crossfade for smoother transitions
+    t_fade = np.linspace(0, np.pi / 2, n)
+    fade_out = np.cos(t_fade)
+    fade_in = np.sin(t_fade)
 
     return audio_a * fade_out + audio_b * fade_in
 
@@ -130,7 +131,7 @@ def render_utterance(phonemes: list[str], sample_rate: int = 44100,
             specs.append(PHONEMES.get("SIL", PHONEMES["AH"]))
 
     f0_contour = apply_intonation(phonemes, f0_base)
-    transition_dur = 0.025 / speed  # 25ms transitions
+    transition_dur = 0.040 / speed  # 40ms transitions for smoother speech
 
     segments = []
     for i, spec in enumerate(specs):
