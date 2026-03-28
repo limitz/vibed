@@ -58,6 +58,16 @@ Console-based Google Calendar client powered by the Google Calendar MCP. Feature
 
 ![Google Calendar Client](gcalendar/screenshot.png)
 
+### [Hit Song](hitsong/)
+
+> `Write a hitsong and record it to mp3`
+
+Python application that composes and synthesizes a complete synth-pop song ("Electric Dreams") from scratch using numpy waveform synthesis — detuned saw leads, sub bass, warm pads, and synthesized drums — then masters and exports to MP3. No external music libraries needed.
+
+![Hit Song](hitsong/screenshot.png)
+
+🎵 **[Listen to Electric Dreams (MP3)](hitsong/hitsong.mp3)**
+
 ## Built with
 
 [Claude Code](https://claude.com/claude-code) — Claude Opus 4.6 (`claude-opus-4-6`)
