@@ -12,6 +12,7 @@ A collection of projects built entirely by AI through vibe coding. Each subfolde
 
 ### [Washing Machine](washingmachine/)
 
+**Prompt:**
 > `Use svg to create an image of a washing machine. Iterate and refine until it looks as real as possible. Store as jpeg.`
 
 Python application that generates a photorealistic washing machine image using SVG with 5 iterative refinement passes (base shapes, materials, lighting, details, polish), then converts to JPEG. Features chrome trim, glass door with visible drum and clothes, water tint, control panel with LCD and knobs, and realistic lighting.
@@ -20,6 +21,7 @@ Python application that generates a photorealistic washing machine image using S
 
 ### [Tetris](tetris/)
 
+**Prompt:**
 > `Make a cool Tetris game for the console.`
 
 Console-based Tetris game using Python curses. Features SRS wall kicks, 7-bag randomizer, ghost piece, scoring, and increasing difficulty.
@@ -28,6 +30,7 @@ Console-based Tetris game using Python curses. Features SRS wall kicks, 7-bag ra
 
 ### [Chess](chess/)
 
+**Prompt:**
 > `Make a nice looking chess game for the console. Do not use a library for generating the moves made by the computer, write your own logic.`
 
 Console-based chess game with a custom AI opponent. Features full chess rules (castling, en passant, promotion), minimax with alpha-beta pruning, Unicode pieces, and colored board squares.
@@ -36,6 +39,7 @@ Console-based chess game with a custom AI opponent. Features full chess rules (c
 
 ### [Pac-Man](pacman/)
 
+**Prompt:**
 > `pacman`
 
 Console-based Pac-Man game using Python curses. Features a classic maze, 4 ghosts with unique AI personalities (Blinky, Pinky, Inky, Clyde), power pellets, ghost frightened mode, scoring, lives, and level progression.
@@ -44,6 +48,7 @@ Console-based Pac-Man game using Python curses. Features a classic maze, 4 ghost
 
 ### [SpeakUp](speakup/)
 
+**Prompt:**
 > `Using only FM synthesis, learn how to speak.`
 
 Python application that uses pure FM synthesis to generate human speech from text. Models vocal formants with FM operator pairs, synthesizes vowels, consonants, and coarticulated speech. Demonstrates a progressive "learning to speak" journey across 6 audio files — from raw FM tones to full sentences.
@@ -59,6 +64,7 @@ Python application that uses pure FM synthesis to generate human speech from tex
 
 ### [ASCII Art Video](ascii-art-video/)
 
+**Prompt:**
 > `write an application that generates an ascii art video. Content: title page, then 2 stick figures fighting, then something really really funny happens, fade out, finally end-credits. When you're done ask yourself, how can I make it cooler, more amazing, flashier... do that! over and over until you're satisfied.`
 
 Animated ASCII art video playing at 30fps in the terminal. Features a Matrix rain intro, epic stick figure fight with hadouken projectiles, a hilarious banana peel incident that leads to friendship, a sunset fade out, and Star Wars-style credits. Packed with particle effects, screen shake, combo counters, and fireworks.
@@ -67,6 +73,7 @@ Animated ASCII art video playing at 30fps in the terminal. Features a Matrix rai
 
 ### [Gmail Client](gmail/)
 
+**Prompt:**
 > `Make a gmail client for the console using the gmail MCP. Make it really user friendly, clean, well designed. Think menus, full rgb, emoji's. Make a few iterations in the design process to get it just right. *Never ever test with the actual mcp*`
 
 Console-based Gmail client powered by the Gmail MCP. Features a dark RGB color theme, emoji-rich sidebar with labels, full inbox/message/thread/compose/search views, draft management, and vim-style keyboard navigation. Includes a complete mock client with 20 realistic emails for safe development — never touches real Gmail.
@@ -75,6 +82,7 @@ Console-based Gmail client powered by the Gmail MCP. Features a dark RGB color t
 
 ### [Google Calendar Client](gcalendar/)
 
+**Prompt:**
 > `Do the same as project ../gmail, but for google calendar.`
 
 Console-based Google Calendar client powered by the Google Calendar MCP. Features a dark purple RGB color theme, emoji-rich sidebar with calendar list, single-day agenda view with week navigation, full event detail/create/edit/search/free-time views, RSVP support, and vim-style keyboard navigation. Includes a complete mock client with 25+ realistic events for safe development — never touches real Google Calendar.
@@ -83,6 +91,7 @@ Console-based Google Calendar client powered by the Google Calendar MCP. Feature
 
 ### [Hit Song](hitsong/)
 
+**Prompt:**
 > `Write a hitsong and record it to mp3`
 
 Python application that composes and synthesizes a complete synth-pop song ("Electric Dreams") from scratch using numpy waveform synthesis — detuned saw leads, sub bass, warm pads, and synthesized drums — then masters and exports to MP3. No external music libraries needed.

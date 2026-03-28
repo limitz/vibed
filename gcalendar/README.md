@@ -1,8 +1,7 @@
 # Google Calendar Console Client
 
-```
-Do the same as project ../gmail, but for google calendar.
-```
+**Prompt:**
+> `Do the same as project ../gmail, but for google calendar.`
 
 ![Screenshot](screenshot.png)
 

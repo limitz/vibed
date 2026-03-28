@@ -1,8 +1,7 @@
 # Hit Song Generator
 
-```
-Write a hitsong and record it to mp3
-```
+**Prompt:**
+> `Write a hitsong and record it to mp3`
 
 ![Screenshot](screenshot.png)
 

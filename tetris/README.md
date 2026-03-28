@@ -1,8 +1,7 @@
 # Tetris
 
-```
-Make a cool Tetris game for the console.
-```
+**Prompt:**
+> `Make a cool Tetris game for the console.`
 
 A console-based Tetris game written in Python using curses.
 

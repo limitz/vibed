@@ -1,8 +1,7 @@
 # Pac-Man
 
-```
-pacman
-```
+**Prompt:**
+> `pacman`
 
 A console-based Pac-Man game built in Python using curses.
 

@@ -1,8 +1,7 @@
 # Chess
 
-```
-Make a nice looking chess game for the console. Do not use a library for generating the moves made by the computer, write your own logic.
-```
+**Prompt:**
+> `Make a nice looking chess game for the console. Do not use a library for generating the moves made by the computer, write your own logic.`
 
 A console-based chess game with a custom AI opponent, built entirely in Python using curses for terminal rendering.
 

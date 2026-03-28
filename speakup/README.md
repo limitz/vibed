@@ -1,8 +1,7 @@
 # SpeakUp
 
-```
-Using only FM synthesis, learn how to speak.
-```
+**Prompt:**
+> `Using only FM synthesis, learn how to speak.`
 
 A Python application that uses pure FM (Frequency Modulation) synthesis to generate human speech from text. No audio samples, no pre-recorded data — just math.
 
