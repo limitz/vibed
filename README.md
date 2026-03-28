@@ -121,9 +121,9 @@ Python application that composes and synthesizes a complete synth-pop song ("Ele
 ### [South Park](southpark/)
 
 **Prompt:**
-> `Use SVG do draw an image of eric cartman throwing up on his mom, in his bedroom. Kenny is laughing. Convert to png.`
+> `Use SVG do draw an image of eric cartman throwing up on his mom, in his bedroom. Kenny is laughing. Do a few iterations making it look like the actual series. Convert to png.`
 
-Python application that generates a South Park scene using SVG — Eric Cartman throwing up on his mom in his bedroom while Kenny laughs — then converts to PNG with CairoSVG.
+Python application that generates a South Park scene using SVG — Eric Cartman throwing up on his mom in his bedroom while Kenny laughs — iteratively refined over 3 passes to match the show's construction-paper cutout style (touching eyes, thick outlines, flat colors, oversized heads). Converts to PNG with CairoSVG.
 
 ![South Park](southpark/screenshot.png)
 
