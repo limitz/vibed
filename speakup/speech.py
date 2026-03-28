@@ -28,7 +28,7 @@ def render_phoneme(spec: PhonemeSpec, duration: float, f0: float,
 
     # Voiced component: FM formant pairs
     if spec.voiced and spec.formants and f0 > 0:
-        env = Envelope(attack=spec.attack, decay=0.02, sustain=0.8, release=spec.release)
+        env = Envelope(attack=max(spec.attack, 0.02), decay=0.03, sustain=0.8, release=max(spec.release, 0.03))
         # Modulator at F0 (fundamental pitch)
         modulator = np.sin(2 * np.pi * f0 * t)
         for formant in spec.formants:
@@ -43,7 +43,7 @@ def render_phoneme(spec: PhonemeSpec, duration: float, f0: float,
 
     # Noise/fricative component
     if spec.noise_level > 0 and spec.formants:
-        env = Envelope(attack=spec.attack, decay=0.01, sustain=0.9, release=spec.release)
+        env = Envelope(attack=max(spec.attack, 0.02), decay=0.02, sustain=0.9, release=max(spec.release, 0.03))
         for formant in spec.formants:
             noise_sig = noise_modulated_fm(
                 formant.frequency, spec.noise_level,
@@ -130,13 +130,13 @@ def render_utterance(phonemes: list[str], sample_rate: int = 44100,
             specs.append(PHONEMES.get("SIL", PHONEMES["AH"]))
 
     f0_contour = apply_intonation(phonemes, f0_base)
-    overlap_dur = 0.040 / speed  # 40ms overlap region
+    overlap_dur = 0.060 / speed  # 60ms overlap region for smooth blending
     overlap_samples = int(overlap_dur * sample_rate)
 
-    # Render all phonemes
+    # Render all phonemes with stretched durations for natural pacing
     rendered = []
     for i, spec in enumerate(specs):
-        duration = spec.duration / speed
+        duration = spec.duration * 1.8 / speed  # 1.8x slower than raw phoneme durations
         f0 = f0_contour[i]
         audio = render_phoneme(spec, duration, f0, sample_rate)
         rendered.append(audio)

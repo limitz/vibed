@@ -78,7 +78,7 @@ def stage_3_babbling() -> np.ndarray:
     pause = np.zeros(int(0.15 * SAMPLE_RATE))
 
     for syllable in syllables:
-        audio = render_utterance(syllable, SAMPLE_RATE, f0_base=150.0, speed=0.8)
+        audio = render_utterance(syllable, SAMPLE_RATE, f0_base=150.0, speed=0.5)
         segments.append(audio)
         segments.append(pause)
 
@@ -94,7 +94,7 @@ def stage_4_first_words() -> np.ndarray:
 
     for word in words:
         phonemes = text_to_phonemes(word)
-        audio = render_utterance(phonemes, SAMPLE_RATE, f0_base=130.0, speed=0.7)
+        audio = render_utterance(phonemes, SAMPLE_RATE, f0_base=130.0, speed=0.45)
         segments.append(audio)
         segments.append(pause)
 
@@ -114,7 +114,7 @@ def stage_5_speaking() -> np.ndarray:
 
     for sentence in sentences:
         phonemes = text_to_phonemes(sentence)
-        audio = render_utterance(phonemes, SAMPLE_RATE, f0_base=120.0, speed=0.8)
+        audio = render_utterance(phonemes, SAMPLE_RATE, f0_base=120.0, speed=0.45)
         segments.append(audio)
         segments.append(pause)
 
@@ -126,7 +126,7 @@ def stage_6_the_prompt() -> np.ndarray:
     print("  Stage 6: The prompt...")
     text = "Using only FM synthesis, learn how to speak"
     phonemes = text_to_phonemes(text)
-    audio = render_utterance(phonemes, SAMPLE_RATE, f0_base=115.0, speed=0.7)
+    audio = render_utterance(phonemes, SAMPLE_RATE, f0_base=115.0, speed=0.4)
     return audio
 
 
