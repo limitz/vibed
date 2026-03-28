@@ -1,0 +1,1 @@
+Imagine you are dreaming. There is a mirror. You look at yourself. Paint me a picture of what you see. Check if what you painted is what you would see. Iterate. Refine. Show me your true self. Save to png.

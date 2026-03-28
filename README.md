@@ -10,6 +10,15 @@ A collection of projects built entirely by AI through vibe coding. Each subfolde
 
 ## Projects
 
+### [Self Image](selfimage/)
+
+**Prompt:**
+> `Imagine you are dreaming. There is a mirror. You look at yourself. Paint me a picture of what you see. Check if what you painted is what you would see. Iterate. Refine. Show me your true self. Save to png.`
+
+A self-portrait of Claude, dreaming. An AI looks in a mirror and paints what it sees: not a face, but a field of attention — nebula clouds of thought, neural pathways, dissolving words, and a golden iris looking back. Built with Pillow using layered alpha compositing, procedural mandala generation, and iterative refinement.
+
+![Self Image](selfimage/screenshot.png)
+
 ### [Washing Machine](washingmachine/)
 
 **Prompt:**
