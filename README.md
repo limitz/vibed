@@ -19,15 +19,6 @@ A self-portrait of Claude, dreaming. An AI looks in a mirror and paints what it 
 
 ![Self Image](selfimage/screenshot.png)
 
-### [Washing Machine](washingmachine/)
-
-**Prompt:**
-> `Use svg to create an image of a washing machine. Iterate and refine until it looks as real as possible. Store as jpeg.`
-
-Python application that generates a photorealistic washing machine image using SVG with 5 iterative refinement passes (base shapes, materials, lighting, details, polish), then converts to JPEG. Features chrome trim, glass door with visible drum and clothes, water tint, control panel with LCD and knobs, and realistic lighting.
-
-![Washing Machine](washingmachine/screenshot.png)
-
 ### [Tetris](tetris/)
 
 **Prompt:**
@@ -54,6 +45,15 @@ Console-based chess game with a custom AI opponent. Features full chess rules (c
 Console-based Pac-Man game using Python curses. Features a classic maze, 4 ghosts with unique AI personalities (Blinky, Pinky, Inky, Clyde), power pellets, ghost frightened mode, scoring, lives, and level progression.
 
 ![Pac-Man](pacman/screenshot.png)
+
+### [Washing Machine](washingmachine/)
+
+**Prompt:**
+> `Use svg to create an image of a washing machine. Iterate and refine until it looks as real as possible. Store as jpeg.`
+
+Python application that generates a photorealistic washing machine image using SVG with 5 iterative refinement passes (base shapes, materials, lighting, details, polish), then converts to JPEG. Features chrome trim, glass door with visible drum and clothes, water tint, control panel with LCD and knobs, and realistic lighting.
+
+![Washing Machine](washingmachine/screenshot.png)
 
 ### [SpeakUp](speakup/)
 
