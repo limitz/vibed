@@ -42,6 +42,14 @@ Animated ASCII art video playing at 30fps in the terminal. Features a Matrix rai
 
 ![ASCII Art Video Demo](ascii-art-video/demo.gif)
 
+### [Gmail Client](gmail/)
+
+> `Make a gmail client for the console using the gmail MCP. Make it really user friendly, clean, well designed. Think menus, full rgb, emoji's. Make a few iterations in the design process to get it just right. *Never ever test with the actual mcp*`
+
+Console-based Gmail client powered by the Gmail MCP. Features a dark RGB color theme, emoji-rich sidebar with labels, full inbox/message/thread/compose/search views, draft management, and vim-style keyboard navigation. Includes a complete mock client with 20 realistic emails for safe development — never touches real Gmail.
+
+![Gmail Client](gmail/screenshot.png)
+
 ## Built with
 
 [Claude Code](https://claude.com/claude-code) — Claude Opus 4.6 (`claude-opus-4-6`)
