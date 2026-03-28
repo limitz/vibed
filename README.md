@@ -50,6 +50,14 @@ Console-based Gmail client powered by the Gmail MCP. Features a dark RGB color t
 
 ![Gmail Client](gmail/screenshot.png)
 
+### [Google Calendar Client](gcalendar/)
+
+> `Do the same as project ../gmail, but for google calendar.`
+
+Console-based Google Calendar client powered by the Google Calendar MCP. Features a dark purple RGB color theme, emoji-rich sidebar with calendar list, single-day agenda view with week navigation, full event detail/create/edit/search/free-time views, RSVP support, and vim-style keyboard navigation. Includes a complete mock client with 25+ realistic events for safe development — never touches real Google Calendar.
+
+![Google Calendar Client](gcalendar/screenshot.png)
+
 ## Built with
 
 [Claude Code](https://claude.com/claude-code) — Claude Opus 4.6 (`claude-opus-4-6`)

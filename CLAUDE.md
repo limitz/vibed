@@ -10,7 +10,7 @@ Each subfolder contains a `PROMPT.md` with instructions on what to code in that 
 
 ## Rules
 
-* Never use any other application folders as reference when implementing a new application.
+* Never use any other application folders as reference when implementing a new application, unless explicitly mentioned.
 
 ## Workflow
 
